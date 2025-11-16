@@ -1,0 +1,11 @@
+.arrow {
+    animation-name: moveArrow; /* Имя анимации */
+    animation-duration: 2s; /* Длительность одного цикла */
+    animation-iteration-count: infinite; /* Бесконечное повторение */
+}
+
+@keyframes moveArrow {
+    0% { transform: translateX(0); } /* Начальное положение */
+    50% { transform: translateX(-10px); } /* Промежуточное положение */
+    100% { transform: translateX(0); } /* Конечное положение (возвращение) */
+}

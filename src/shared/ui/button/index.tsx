@@ -1,0 +1,23 @@
+import clsx from 'clsx';
+import { HTMLAttributes } from 'react';
+import { twMerge } from 'tailwind-merge';
+
+type IButtonProps = HTMLAttributes<HTMLButtonElement>;
+
+export const Button = (props: IButtonProps) => {
+  const { className, children, ...buttonProps } = props;
+
+  return (
+    <button
+      {...buttonProps}
+      className={twMerge(
+        clsx(
+          'cursor-pointer px-6 py-2.5 bg-cian text-white rounded-lg font-medium hover:bg-[#265285] transition-colors w-fit',
+          className
+        )
+      )}
+    >
+      {children}
+    </button>
+  );
+};

@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { ContactForm } from '@/features/contactForm/ContactForm';
 import Image from 'next/image';
-import Logo from '@/shared/images/logo.svg';
-import { PRODUCTS_ANCHOR } from '@/shared/config';
+import LogoIcon from '@/shared/images/logo.svg';
+import { CONTACTS_ANCHOR, PRODUCTS_ANCHOR, TASKS_ANCHOR } from '@/shared/config';
 import Link from 'next/link';
+import { Button, Container } from '@/shared/ui';
 
 const navigation = [
   {
@@ -13,11 +14,11 @@ const navigation = [
     name: 'Продукты',
   },
   {
-    link: '',
+    link: `/#${TASKS_ANCHOR}`,
     name: 'Задачи',
   },
   {
-    link: '',
+    link: `/#${CONTACTS_ANCHOR}`,
     name: 'Контакты',
   },
 ];
@@ -35,10 +36,10 @@ export const Header = () => {
   return (
     <>
       <header className="sticky top-0 z-50 backdrop-blur-sm bg-foreground">
-        <div className="container mx-auto px-6 py-4">
+        <Container className="py-4">
           <div className="flex items-center justify-between">
             <Image
-              src={Logo}
+              src={LogoIcon}
               alt="logo"
               className="h-14 w-auto cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -47,39 +48,21 @@ export const Header = () => {
             <nav className="hidden lg:flex items-center gap-8">
               {navigation.map((item) => {
                 return (
-                  <Link key={item.name} href={item.link} replace className="text-white">
+                  <Link
+                    onClick={() => scrollToSection('products')}
+                    key={item.name}
+                    href={item.link}
+                    replace
+                    className="text-white text-base"
+                  >
                     {item.name}
                   </Link>
                 );
               })}
-
-              <button
-                onClick={() => scrollToSection('products')}
-                className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
-              >
-                Продукты
-              </button>
-              <button
-                onClick={() => scrollToSection('tasks')}
-                className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
-              >
-                Задачи
-              </button>
-              <button
-                onClick={() => scrollToSection('contacts')}
-                className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
-              >
-                Контакты
-              </button>
             </nav>
-            <button
-              onClick={() => setIsFormOpen(true)}
-              className="px-6 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
-            >
-              Оставить заявку
-            </button>
+            <Button onClick={() => setIsFormOpen(true)}>Оставить заявку</Button>
           </div>
-        </div>
+        </Container>
       </header>
       {isFormOpen && <ContactForm onClose={() => setIsFormOpen(false)} />}
     </>

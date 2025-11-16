@@ -2,7 +2,12 @@ import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer/Footer';
 import { ProductCard } from '@/entities/product/ProductCard';
 import { TaskCard } from '@/entities/task/TaskCard';
-import { PRODUCTS_ANCHOR } from '@/shared/config';
+import {CONTACTS_ANCHOR, PRODUCTS_ANCHOR, TASKS_ANCHOR} from '@/shared/config';
+import RobotIcon from '@/shared/images/robot.png';
+import Image from 'next/image';
+import { Button, Container } from '@/shared/ui';
+import ArrowLeftIcon from '@/shared/images/arrow-left.svg';
+import './index.css';
 
 const products = [
   {
@@ -56,28 +61,34 @@ const tasks = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col">
       <Header />
       <main className="flex-1">
-        <section className="bg-white py-24">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16 max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        <section className="bg-foreground py-24 z-10">
+          <Container className="flex gap-10 justify-between align-bottom">
+            <div className="flex flex-col gap-5">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 Интеллектуальные коммуникации для вашего бизнеса
               </h1>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                Проектируем, разрабатываем и внедряем AI голосовых ботов, чат-ботов и другие сервисы
-                коммуникаций, которые круглосуточно и эффективно работают на сайтах, в мессенджерах
-                и по телефону
+              <p className="text-lg md:text-xl text-white/70 leading-relaxed">
+                Проектируем, разрабатываем и внедряем AI голосовых роботов, чат-ботов и другие
+                сервисы коммуникаций, которые круглосуточно и эффективно работают на вашем сайте, в
+                мессенджерах и по телефону
               </p>
+              <Button className="mt-auto text-lg flex gap-2 items-center">
+                Связаться
+                <Image src={ArrowLeftIcon} alt="arrow" className='arrow size-[22px] rotate-180 text-red-600'/>
+              </Button>
             </div>
-          </div>
+
+            <Image src={RobotIcon} alt="robot" className="right-0 bottom-0 w-[500px]" />
+          </Container>
         </section>
 
         <section id={PRODUCTS_ANCHOR} className="py-20 bg-gray-50 scroll-mt-20">
-          <div className="container mx-auto px-6">
+          <Container>
             <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Продукты</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
               {products.map((product, index) => (
                 <ProductCard
                   key={index}
@@ -87,24 +98,24 @@ export default function Home() {
                 />
               ))}
             </div>
-          </div>
+          </Container>
         </section>
 
-        <section id="tasks" className="py-20 bg-white scroll-mt-20">
-          <div className="container mx-auto px-6">
+        <section id={TASKS_ANCHOR} className="py-20 bg-white scroll-mt-20">
+          <Container>
             <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
               Популярные задачи
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
               {tasks.map((task, index) => (
                 <TaskCard key={index} title={task.title} description={task.description} />
               ))}
             </div>
-          </div>
+          </Container>
         </section>
 
-        <section id="contacts" className="py-20 bg-gray-50 scroll-mt-20">
-          <div className="container mx-auto px-6">
+        <section id={CONTACTS_ANCHOR} className="py-20 bg-gray-50 scroll-mt-20">
+          <Container>
             <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Контакты</h2>
             <div className="max-w-2xl mx-auto text-center">
               <p className="text-lg text-gray-600 mb-6">
@@ -119,7 +130,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-          </div>
+          </Container>
         </section>
       </main>
       <Footer />
