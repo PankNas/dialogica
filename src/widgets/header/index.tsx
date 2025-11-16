@@ -2,6 +2,25 @@
 
 import { useState } from 'react';
 import { ContactForm } from '@/features/contactForm/ContactForm';
+import Image from 'next/image';
+import Logo from '@/shared/images/logo.svg';
+import { PRODUCTS_ANCHOR } from '@/shared/config';
+import Link from 'next/link';
+
+const navigation = [
+  {
+    link: `/#${PRODUCTS_ANCHOR}`,
+    name: 'Продукты',
+  },
+  {
+    link: '',
+    name: 'Задачи',
+  },
+  {
+    link: '',
+    name: 'Контакты',
+  },
+];
 
 export const Header = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -15,13 +34,25 @@ export const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-200 backdrop-blur-sm bg-white/95">
+      <header className="sticky top-0 z-50 backdrop-blur-sm bg-foreground">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-gray-900 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              Dialogica
-            </div>
+            <Image
+              src={Logo}
+              alt="logo"
+              className="h-14 w-auto cursor-pointer"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            />
+
             <nav className="hidden lg:flex items-center gap-8">
+              {navigation.map((item) => {
+                return (
+                  <Link key={item.name} href={item.link} replace className="text-white">
+                    {item.name}
+                  </Link>
+                );
+              })}
+
               <button
                 onClick={() => scrollToSection('products')}
                 className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
@@ -50,10 +81,7 @@ export const Header = () => {
           </div>
         </div>
       </header>
-      {isFormOpen && (
-        <ContactForm onClose={() => setIsFormOpen(false)} />
-      )}
+      {isFormOpen && <ContactForm onClose={() => setIsFormOpen(false)} />}
     </>
   );
 };
-

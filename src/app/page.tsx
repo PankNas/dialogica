@@ -1,7 +1,8 @@
-import { Header } from '@/widgets/header/Header';
+import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer/Footer';
 import { ProductCard } from '@/entities/product/ProductCard';
 import { TaskCard } from '@/entities/task/TaskCard';
+import { PRODUCTS_ANCHOR } from '@/shared/config';
 
 const products = [
   {
@@ -73,7 +74,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="products" className="py-20 bg-gray-50 scroll-mt-20">
+        <section id={PRODUCTS_ANCHOR} className="py-20 bg-gray-50 scroll-mt-20">
           <div className="container mx-auto px-6">
             <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Продукты</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
