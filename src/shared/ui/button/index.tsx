@@ -12,7 +12,7 @@ export const Button = (props: IButtonProps) => {
       {...buttonProps}
       className={twMerge(
         clsx(
-          'cursor-pointer px-6 py-2.5 bg-cian text-white rounded-lg font-medium hover:bg-[#265285] transition-colors w-fit',
+          'cursor-pointer px-6 py-2.5 bg-cian text-white rounded-lg font-medium hover:bg-[#0D23CD] transition-colors w-fit',
           className
         )
       )}
