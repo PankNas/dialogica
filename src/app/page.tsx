@@ -16,6 +16,8 @@ import MicroIcon from '@/shared/images/micro.svg';
 import PaperPlaneIcon from '@/shared/images/paper-plane.svg';
 import ChattingIcon from '@/shared/images/chatting.svg';
 import MessageIcon from '@/shared/images/message.svg';
+import AiWidgetIcon from '@/shared/images/ai-widget.svg';
+import ChatPlatformIcon from '@/shared/images/chat-platform.svg';
 
 import './index.css';
 
@@ -24,32 +26,32 @@ const products = [
     title: 'Голосовой бот',
     description:
       'Автоматизация звонков и обработки входящих вызовов с помощью искусственного интеллекта',
-    icon: <Image src={MicroIcon} alt="Micro" />,
+    icon: MicroIcon,
   },
   {
     title: 'Чат-бот',
     description: 'Умный помощник для общения с клиентами в мессенджерах и на сайте',
-    icon: <Image src={ChattingIcon} alt="Chatting" />,
+    icon: ChattingIcon,
   },
   {
     title: 'Чат платформа',
     description: 'Омниканальная платформа для управления всеми каналами коммуникации',
-    icon: '🌐',
+    icon: ChatPlatformIcon,
   },
   {
     title: 'Рассылка сообщений',
     description: 'Автоматизация уведомлений и массовых рассылок клиентам',
-    icon: <Image src={PaperPlaneIcon} alt="Paper plane" />,
+    icon: PaperPlaneIcon,
   },
   {
     title: 'Виджет на сайт',
     description: 'Встроенный виджет для сайта с возможностью общения с клиентами',
-    icon: <Image src={MessageIcon} alt="Message" />,
+    icon: MessageIcon,
   },
   {
     title: 'ИИ-виджет',
     description: 'Продвинутый виджет с искусственным интеллектом для интеллектуального общения',
-    icon: '🤖',
+    icon: AiWidgetIcon,
   },
 ];
 
@@ -166,24 +168,24 @@ export default function Home() {
           </Container>
         </section>
 
-        <section id={CONTACTS_ANCHOR} className="py-20 bg-gray-50 scroll-mt-20">
-          <Container>
-            <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Контакты</h2>
-            <div className="max-w-2xl mx-auto text-center">
-              <p className="text-lg text-gray-600 mb-6">
-                Свяжитесь с нами для обсуждения вашего проекта
-              </p>
-              <div className="space-y-3">
-                <p className="text-gray-700">
-                  <span className="font-medium">Email:</span> info@dialogica.ru
-                </p>
-                <p className="text-gray-700">
-                  <span className="font-medium">Телефон:</span> +7 (495) 123-45-67
-                </p>
-              </div>
-            </div>
-          </Container>
-        </section>
+        {/*<section id={CONTACTS_ANCHOR} className="py-20 bg-gray-50 scroll-mt-20">*/}
+        {/*  <Container>*/}
+        {/*    <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Контакты</h2>*/}
+        {/*    <div className="max-w-2xl mx-auto text-center">*/}
+        {/*      <p className="text-lg text-gray-600 mb-6">*/}
+        {/*        Свяжитесь с нами для обсуждения вашего проекта*/}
+        {/*      </p>*/}
+        {/*      <div className="space-y-3">*/}
+        {/*        <p className="text-gray-700">*/}
+        {/*          <span className="font-medium">Email:</span> info@dialogica.ru*/}
+        {/*        </p>*/}
+        {/*        <p className="text-gray-700">*/}
+        {/*          <span className="font-medium">Телефон:</span> +7 (495) 123-45-67*/}
+        {/*        </p>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*  </Container>*/}
+        {/*</section>*/}
       </main>
       <Footer />
     </div>

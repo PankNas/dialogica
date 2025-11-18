@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import Image from 'next/image';
 
 interface ProductCardProps {
   title: string;
@@ -24,7 +25,9 @@ export const ProductCard = ({ title, description, icon, className, url }: Produc
     >
       {icon && (
         <div className="size-18 rounded-full border border-[3px] border-cian flex items-center justify-center p-3">
-          <span className="">{icon}</span>
+          <span className="">
+            <Image src={icon} alt="" />
+          </span>
         </div>
       )}
       <h3 className="text-xl font-semibold text-gray-900 ">{title}</h3>
