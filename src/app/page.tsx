@@ -12,6 +12,11 @@ import ArrowLeftIcon from '@/shared/images/arrow-left.svg';
 import PeopleIcon from '@/shared/images/robot2.svg';
 import BusinessIcon from '@/shared/images/test.svg';
 
+import MicroIcon from '@/shared/images/micro.svg';
+import PaperPlaneIcon from '@/shared/images/paper-plane.svg';
+import ChattingIcon from '@/shared/images/chatting.svg';
+import MessageIcon from '@/shared/images/message.svg';
+
 import './index.css';
 
 const products = [
@@ -19,12 +24,12 @@ const products = [
     title: 'Голосовой бот',
     description:
       'Автоматизация звонков и обработки входящих вызовов с помощью искусственного интеллекта',
-    icon: '📞',
+    icon: <Image src={MicroIcon} alt="Micro" />,
   },
   {
     title: 'Чат-бот',
     description: 'Умный помощник для общения с клиентами в мессенджерах и на сайте',
-    icon: '💬',
+    icon: <Image src={ChattingIcon} alt="Chatting" />,
   },
   {
     title: 'Чат платформа',
@@ -34,12 +39,12 @@ const products = [
   {
     title: 'Рассылка сообщений',
     description: 'Автоматизация уведомлений и массовых рассылок клиентам',
-    icon: '📧',
+    icon: <Image src={PaperPlaneIcon} alt="Paper plane" />,
   },
   {
     title: 'Виджет на сайт',
     description: 'Встроенный виджет для сайта с возможностью общения с клиентами',
-    icon: '🔗',
+    icon: <Image src={MessageIcon} alt="Message" />,
   },
   {
     title: 'ИИ-виджет',
@@ -83,11 +88,7 @@ export default function Home() {
       <main className="flex-1">
         <section className="bg-foreground ">
           <Container className="flex gap-20 justify-center align-bottom relative h-[600px]">
-            <Image
-              src={BusinessIcon}
-              alt=""
-              className="absolute opacity-35 top-0"
-            />
+            <Image src={BusinessIcon} alt="" className="absolute opacity-35 top-0" />
 
             <div className="flex flex-col gap-5 z-10 text-center max-w-[1024px] pt-[130px]">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
@@ -110,7 +111,6 @@ export default function Home() {
 
             {/*<Image src={PeopleIcon} alt="robot" className="" />*/}
           </Container>
-
 
           {/*<Container className="flex gap-20 justify-between align-bottom">*/}
           {/*  <div className="flex flex-col gap-5">*/}
