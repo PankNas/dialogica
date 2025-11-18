@@ -6,12 +6,12 @@ import { Container } from '@/shared/ui';
 
 export const Footer = () => {
   return (
-    <footer className="w-full bg-foreground text-gray-300 py-10 mt-20 border-t border-gray-800">
+    <footer id={CONTACTS_ANCHOR} className="w-full bg-foreground text-gray-300 py-10">
       <Container className="mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Left block — logos */}
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-4">
-            <Image src={LogoIcon} alt="Логотип компании" className="h-10 w-auto" />
+            <Image src={LogoIcon} alt="Логотип компании" className="h-12 w-auto" />
             <a href="https://twin24.ai/" target="_blank">
               <Image src={TwinIcon} alt="Логотип партнёра" className="h-10 w-auto opacity-80" />
             </a>

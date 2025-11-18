@@ -167,26 +167,8 @@ export default function Home() {
             </div>
           </Container>
         </section>
-
-        {/*<section id={CONTACTS_ANCHOR} className="py-20 bg-gray-50 scroll-mt-20">*/}
-        {/*  <Container>*/}
-        {/*    <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Контакты</h2>*/}
-        {/*    <div className="max-w-2xl mx-auto text-center">*/}
-        {/*      <p className="text-lg text-gray-600 mb-6">*/}
-        {/*        Свяжитесь с нами для обсуждения вашего проекта*/}
-        {/*      </p>*/}
-        {/*      <div className="space-y-3">*/}
-        {/*        <p className="text-gray-700">*/}
-        {/*          <span className="font-medium">Email:</span> info@dialogica.ru*/}
-        {/*        </p>*/}
-        {/*        <p className="text-gray-700">*/}
-        {/*          <span className="font-medium">Телефон:</span> +7 (495) 123-45-67*/}
-        {/*        </p>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
-        {/*  </Container>*/}
-        {/*</section>*/}
       </main>
+
       <Footer />
     </div>
   );
