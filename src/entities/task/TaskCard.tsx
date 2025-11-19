@@ -45,7 +45,7 @@ export const TaskCard = ({
         {/*</div>*/}
 
         {sector && <span className="text-sm text-gray-600">#{sector}</span>}
-        <h3 className="text-xl font-semibold text-gray-900 max-w-[80%]">{title}</h3>
+        <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
         <p className="text-gray-600 leading-relaxed">{description}</p>
 
         {button && type && (
