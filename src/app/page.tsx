@@ -20,6 +20,7 @@ import AiWidgetIcon from '@/shared/images/ai-widget.svg';
 import ChatPlatformIcon from '@/shared/images/chat-platform.svg';
 
 import './index.css';
+import { clsx } from 'clsx';
 
 const products = [
   {
@@ -58,28 +59,71 @@ const products = [
 const tasks = [
   {
     title: 'NPS - опрос о качестве обслуживания',
-    description: 'Автоматический сбор обратной связи от клиентов о качестве обслуживания',
+    description:
+      'Звонки в удобное для клиентов время. Исключается человеческий фактор. Стоимость минуты разговора робота в 3-6 раз ниже.',
+    type: 'listen',
+    sector: 'Опросы',
+  },
+  {
+    title: 'Предсервисный опрос.\n' + 'Напоминание о визите',
+    description:
+      'Звонки в удобное для клиентов время. Исключается человеческий фактор. Стоимость минуты разговора робота в 3-6 раз ниже.',
+    type: 'listen',
+    sector: 'Опросы',
   },
   {
     title: 'Бот AI-консультант по базе знаний',
     description:
-      'Интеллектуальный помощник, который отвечает на вопросы клиентов на основе вашей базы знаний',
+      'Мгновенные ответы вместо долгого поиска по базе знаний. \n' +
+      'Сокращение ошибок вследствие легкого и простого доступа к информации.\n' +
+      'Единый источник истины',
+    sector: 'Опросы',
+    type: 'watch',
   },
   {
     title: 'Привлечение клиентов по холодной базе',
-    description: 'Автоматизация обзвона и привлечения потенциальных клиентов из холодной базы',
+    description:
+      'Быстрый обзвон сотен клиентов.\n' +
+      'Автоматическое выявление горячих лидов по готовности к продолжению диалога.\n' +
+      'Низкая стоимость лида.',
+    type: 'listen',
+    sector: 'Продажи',
   },
   {
-    title: '2 Привлечение клиентов по холодной базе',
-    description: 'Автоматизация обзвона и привлечения потенциальных клиентов из холодной базы',
+    title: 'Обзвон по объявлениям о продаже с целью выкупа',
+    description:
+      'Сотрудники не тратят часы на «пустые» звонки, а концентрируются на работе с горячими клиентами. Сокращение затрат на обзвон в 3-6 раз.',
+    type: 'listen',
+    sector: 'Продажи',
   },
   {
-    title: '3 Привлечение клиентов по холодной базе',
-    description: 'Автоматизация обзвона и привлечения потенциальных клиентов из холодной базы',
+    title: 'Обзвон по рекомендациям при последнем визите',
+    description:
+      '10-15% дополнительного трафика с высоким средним чеком. \n' +
+      'Освобождение операторов от рутинных и непродуктивных звонков.',
+    type: 'listen',
+    sector: 'Продажи',
   },
   {
-    title: '4 Привлечение клиентов по холодной базе',
-    description: 'Автоматизация обзвона и привлечения потенциальных клиентов из холодной базы',
+    title: 'Запись на обслуживание на сайте и в мессенджерах',
+    description:
+      'Ни одного потерянного клиента.  Прием заявок 24/7, даже в нерабочее время и выходные. Возможность записи - там, где клиент всегда онлайн, где ему удобнее.',
+    sector: 'Клиентский сервис',
+    type: 'watch',
+  },
+  {
+    title: 'Приглашение на техническое обслуживании\n',
+    description:
+      'Проявление заботы о клиенте. Регулярное напоминание о ТО повышает удовлетворенность сервисом. Увеличение доли повторных визитов на сервис.',
+    type: 'listen',
+    sector: 'Клиентский сервис',
+  },
+  {
+    title: 'Омниканальная чат-платформа для операторов',
+    description:
+      '«Единое окно» — общение с клиентами из панели оператора, независимо от их канала (Telegram, WhatsApp, Viber, email, SMS). Развитая аналитика.',
+    sector: 'Клиентский сервис',
+    type: 'watch',
   },
 ];
 
@@ -156,14 +200,30 @@ export default function Home() {
         </section>
 
         <section id={TASKS_ANCHOR} className="py-20 bg-white scroll-mt-20">
-          <Container>
-            <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
-              Популярные задачи
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
+          <Container className="flex flex-col gap-8">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Популярные задачи</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {tasks.map((task, index) => (
-                <TaskCard key={index} title={task.title} description={task.description} />
+                <TaskCard
+                  key={index}
+                  title={task.title}
+                  description={task.description}
+                  // className={clsx({ 'row-span-2': index === 0 })}
+                  button
+                  type={task.type as 'watch' | 'listen'}
+                  sector={task.sector}
+                  // video={index === 0}
+                />
               ))}
+            </div>
+
+            <div className="bg-gray-50 flex gap-10 p-4 rounded-xl justify-between items-center">
+              <p>
+                Остались вопросы? Проконсультируем по внедрению интеллектуальных систем и поможем
+                выбрать лучшее решение для ваших задач
+              </p>
+
+              <Button>Связаться</Button>
             </div>
           </Container>
         </section>
