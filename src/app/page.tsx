@@ -135,10 +135,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <button onClick={() => setOpen(true)}>press me</button>
-      <Modal open={open} onCloseAction={() => setOpen(false)}>
-        hello
-      </Modal>
+      {/*<button onClick={() => setOpen(true)}>press me</button>*/}
+      {/*<Modal open={open} onCloseAction={() => setOpen(false)}>*/}
+      {/*  hello*/}
+      {/*</Modal>*/}
 
       <main className="flex-1">
         <section className="bg-foreground ">
