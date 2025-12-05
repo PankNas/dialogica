@@ -1,12 +1,14 @@
-import { Header } from '@/widgets/header';
-import { Footer } from '@/widgets/footer/Footer';
+'use client';
+
+// import { Header } from '@/widgets/header';
+// import { Footer } from '@/widgets/footer/Footer';
 import { ProductCard } from '@/entities/product/ProductCard';
 import { TaskCard } from '@/entities/task/TaskCard';
 import { CONTACTS_ANCHOR, PRODUCTS_ANCHOR, TASKS_ANCHOR } from '@/shared/config';
 import RobotIcon from '@/shared/images/robot.png';
 // import Robot2Icon from '@/shared/images/robot3.svg';
 import Image from 'next/image';
-import { Button, Container } from '@/shared/ui';
+import { Button, Container, Modal } from '@/shared/ui';
 import ArrowLeftIcon from '@/shared/images/arrow-left.svg';
 
 import PeopleIcon from '@/shared/images/robot2.svg';
@@ -21,6 +23,7 @@ import ChatPlatformIcon from '@/shared/images/chat-platform.svg';
 
 import './index.css';
 import { clsx } from 'clsx';
+import { useState } from 'react';
 
 const products = [
   {
@@ -128,9 +131,15 @@ const tasks = [
 ];
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="flex flex-col">
-      <Header />
+      <button onClick={() => setOpen(true)}>press me</button>
+      <Modal open={open} onCloseAction={() => setOpen(false)}>
+        hello
+      </Modal>
+
       <main className="flex-1">
         <section className="bg-foreground ">
           <Container className="flex gap-20 justify-center align-bottom relative h-[600px]">
@@ -145,41 +154,8 @@ export default function Home() {
                 сервисы коммуникаций, которые круглосуточно и эффективно работают на вашем сайте, в
                 мессенджерах и по телефону
               </p>
-              {/*<Button className="mt-auto text-lg flex gap-2 items-center py-4 px-7">*/}
-              {/*  Связаться*/}
-              {/*  <Image*/}
-              {/*    src={ArrowLeftIcon}*/}
-              {/*    alt="arrow"*/}
-              {/*    className="arrow size-[22px] rotate-180 text-red-600"*/}
-              {/*  />*/}
-              {/*</Button>*/}
             </div>
-
-            {/*<Image src={PeopleIcon} alt="robot" className="" />*/}
           </Container>
-
-          {/*<Container className="flex gap-20 justify-between align-bottom">*/}
-          {/*  <div className="flex flex-col gap-5">*/}
-          {/*    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">*/}
-          {/*      Интеллектуальные коммуникации для вашего бизнеса*/}
-          {/*    </h1>*/}
-          {/*    <p className="text-lg md:text-xl text-white/70 leading-relaxed">*/}
-          {/*      Проектируем, разрабатываем и внедряем AI голосовых роботов, чат-ботов и другие*/}
-          {/*      сервисы коммуникаций, которые круглосуточно и эффективно работают на вашем сайте, в*/}
-          {/*      мессенджерах и по телефону*/}
-          {/*    </p>*/}
-          {/*    <Button className="mt-auto text-lg flex gap-2 items-center py-4 px-7">*/}
-          {/*      Связаться*/}
-          {/*      <Image*/}
-          {/*        src={ArrowLeftIcon}*/}
-          {/*        alt="arrow"*/}
-          {/*        className="arrow size-[22px] rotate-180 text-red-600"*/}
-          {/*      />*/}
-          {/*    </Button>*/}
-          {/*  </div>*/}
-
-          {/*  <Image src={RobotIcon} alt="robot" className="right-0 bottom-0 w-[500px]" />*/}
-          {/*</Container>*/}
         </section>
 
         <section id={PRODUCTS_ANCHOR} className="py-20 bg-gray-50 scroll-mt-20">
@@ -229,7 +205,7 @@ export default function Home() {
         </section>
       </main>
 
-      <Footer />
+      {/*<Footer />*/}
     </div>
   );
 }

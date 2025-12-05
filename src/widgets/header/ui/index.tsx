@@ -37,15 +37,17 @@ export const Header = () => {
     <>
       <header className="sticky top-0 z-50 backdrop-blur-sm bg-foreground">
         <Container className="py-4">
-          <div className="flex items-center justify-between">
-            <Image
-              src={LogoIcon}
-              alt="logo"
-              className="h-14 w-auto cursor-pointer"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            />
+          <div className="flex items-center gap-8 justify-between">
+            <div className="flex-1">
+              <Image
+                src={LogoIcon}
+                alt="logo"
+                className="h-14 w-auto cursor-pointer"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              />
+            </div>
 
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="lg:flex items-center gap-8">
               {navigation.map((item) => {
                 return (
                   <Link

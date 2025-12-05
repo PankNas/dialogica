@@ -16,7 +16,6 @@ export const Footer = () => {
               <Image src={TwinIcon} alt="Логотип партнёра" className="h-10 w-auto opacity-80" />
             </a>
           </div>
-          {/*<p className="text-sm text-gray-500 mt-auto">ИП Коннов Ю.С. ИНН: 632122918848</p>*/}
         </div>
 
         {/* Center block — contacts */}
@@ -31,7 +30,7 @@ export const Footer = () => {
         </div>
 
         {/* Right block — legal info */}
-        <div className="flex flex-col gap-3 text-sm text-sm text-gray-500 mt-auto">
+        <div className="flex flex-col gap-3 text-sm text-gray-500 mt-auto">
           <p>
             <span className="text-white/80">Dialogica</span> является официальным партнёром и
             суббрендом <span className="text-white/80">Twin</span>.
