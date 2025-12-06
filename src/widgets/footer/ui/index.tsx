@@ -6,7 +6,7 @@ import { Container } from '@/shared/ui';
 
 export const Footer = () => {
   return (
-    <footer id={CONTACTS_ANCHOR} className="w-full bg-foreground text-gray-300 py-10">
+    <footer id={CONTACTS_ANCHOR} className="bg-foreground text-gray-300 py-10">
       <Container className="mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Left block — logos */}
         <div className="flex flex-col gap-6">

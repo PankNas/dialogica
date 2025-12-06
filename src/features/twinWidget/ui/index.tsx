@@ -17,8 +17,8 @@ export const TwinWidget = () => {
           host: widgetRef.current,
           injectStyles: `
             [data-id=chat-host] {
-              bottom: 24px;
-              right: 24px;
+              bottom: 8px;
+              right: 8px;
               align-items: end;
             }
           `,
