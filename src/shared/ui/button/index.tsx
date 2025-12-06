@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { HTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type IButtonProps = HTMLAttributes<HTMLButtonElement>;
+type IButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = (props: IButtonProps) => {
   const { className, children, ...buttonProps } = props;

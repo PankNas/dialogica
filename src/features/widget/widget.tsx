@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-export const TwinWidget = () => {
+export const Widget = () => {
   const widgetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

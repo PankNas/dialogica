@@ -26,6 +26,7 @@ import { clsx } from 'clsx';
 import { useState } from 'react';
 import { ContactForm } from '@/features/contactForm';
 import CertificateIcon from '@/shared/images/certificate-2.jpg';
+import Certificate2Icon from '@/shared/images/certificate.jpg';
 
 const products = [
   {
@@ -200,40 +201,140 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="py-20 scroll-mt-20">
+      {/* variant 1 */}
+      {/*<section className="py-20 scroll-mt-20">*/}
+      {/*  <Container className="flex flex-col gap-8">*/}
+      {/*    <div>*/}
+      {/*      <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">*/}
+      {/*        Остались вопросы? Напишите нам*/}
+      {/*      </h2>*/}
+      {/*      <div>*/}
+      {/*        <p className="text-gray-500 text-center text-xl">*/}
+      {/*          Dialogica – бизнес-партнер и суббренд TWIN*/}
+      {/*        </p>*/}
+      {/*        <p className="text-gray-500 text-center text-xl">*/}
+      {/*          Проконсультируем и поможем выбрать лучшие решения для ваших задач*/}
+      {/*        </p>*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+
+      {/*    /!* variant 1 *!/*/}
+      {/*    <div className="grid grid-cols-2  bg-[#005CBF] rounded-xl /!*border border-gray-200*!/">*/}
+      {/*      <div className="bg-white m-6 r-0 p-6 rounded-xl ">*/}
+      {/*        <ContactForm onClose={() => {}} />*/}
+      {/*      </div>*/}
+      {/*      <Image*/}
+      {/*        src={CertificateIcon}*/}
+      {/*        alt="Сертификат бизнес-партнера Twin"*/}
+      {/*        className="rounded-r-lg size-full"*/}
+      {/*      />*/}
+      {/*    </div>*/}
+      {/*    /!*<div className="relative grid grid-cols-2 gap-8 bg-white rounded-xl border border-gray-200">*!/*/}
+      {/*    /!*  <div className="absolute w-full h-full">*!/*/}
+      {/*    /!*    <Image*!/*/}
+      {/*    /!*      src={CertificateIcon}*!/*/}
+      {/*    /!*      alt="Сертификат бизнес-партнера Twin"*!/*/}
+      {/*    /!*      className="rounded-lg  h-full w-1/2"*!/*/}
+      {/*    /!*    />*!/*/}
+      {/*    /!*  </div>*!/*/}
+
+      {/*    /!*  <div className="p-6 pl-0 col-start-2 z-10">*!/*/}
+      {/*    /!*    <ContactForm onClose={() => {}} />*!/*/}
+      {/*    /!*  </div>*!/*/}
+      {/*    /!*</div>*!/*/}
+      {/*  </Container>*/}
+      {/*</section>*/}
+
+      {/* variant 2 */}
+      {/*<section className="py-20 scroll-mt-20">*/}
+      {/*  <Container className="flex flex-col gap-8">*/}
+      {/*    <div>*/}
+      {/*      <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">*/}
+      {/*        Остались вопросы? Напишите нам*/}
+      {/*      </h2>*/}
+      {/*      <div>*/}
+      {/*        <p className="text-gray-500 text-center text-xl">*/}
+      {/*          Dialogica – бизнес-партнер и суббренд TWIN*/}
+      {/*        </p>*/}
+      {/*        <p className="text-gray-500 text-center text-xl">*/}
+      {/*          Проконсультируем и поможем выбрать лучшие решения для ваших задач*/}
+      {/*        </p>*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+
+      {/*    <div className="relative grid grid-cols-2 gap-8 bg-white rounded-xl border border-gray-200">*/}
+      {/*      <div className="absolute w-full h-full">*/}
+      {/*        <Image*/}
+      {/*          src={CertificateIcon}*/}
+      {/*          alt="Сертификат бизнес-партнера Twin"*/}
+      {/*          className="rounded-lg  h-full w-1/2"*/}
+      {/*        />*/}
+      {/*      </div>*/}
+
+      {/*      <div className="p-6 pl-0 col-start-2 z-10">*/}
+      {/*        <ContactForm onClose={() => {}} />*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*  </Container>*/}
+      {/*</section>*/}
+
+      {/*variant 2 */}
+      <section className="py-20 scroll-mt-20 bg-foreground">
         <Container className="flex flex-col gap-8">
           <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
+            <h2 className="text-4xl font-bold text-white mb-4 text-center">
               Остались вопросы? Напишите нам
             </h2>
-            <p className="text-gray-500 text-center">Dialogica – бизнес-партнер и суббренд TWIN</p>
-          </div>
-
-          <div className="grid grid-cols-2  bg-[#005CBF] rounded-xl {/*border border-gray-200*/}">
-            <div className="bg-white m-6 r-0 p-6 rounded-xl ">
-              <ContactForm onClose={() => {}} />
+            <div>
+              <p className="text-gray-500 text-center text-xl">
+                Dialogica – бизнес-партнер и суббренд TWIN
+              </p>
+              <p className="text-gray-500 text-center text-xl">
+                Проконсультируем и поможем выбрать лучшие решения для ваших задач
+              </p>
             </div>
-            <Image
-              src={CertificateIcon}
-              alt="Сертификат бизнес-партнера Twin"
-              className="rounded-r-lg size-full"
-            />
           </div>
-          {/*<div className="relative grid grid-cols-2 gap-8 bg-white rounded-xl border border-gray-200">*/}
-          {/*  <div className="absolute w-full h-full">*/}
-          {/*    <Image*/}
-          {/*      src={CertificateIcon}*/}
-          {/*      alt="Сертификат бизнес-партнера Twin"*/}
-          {/*      className="rounded-lg  h-full w-1/2"*/}
-          {/*    />*/}
-          {/*  </div>*/}
 
-          {/*  <div className="p-6 pl-0 col-start-2 z-10">*/}
-          {/*    <ContactForm onClose={() => {}} />*/}
-          {/*  </div>*/}
-          {/*</div>*/}
+          <div className="grid grid-cols-2 p-6 gap-8  rounded-xl  ">
+            <div>
+              <Image
+                src={Certificate2Icon}
+                alt="Сертификат бизнес-партнера Twin"
+                className="rounded-lg size-full"
+              />
+            </div>
+
+            <div className="bg-white p-6 border border-gray-200 rounded-lg">
+              <ContactForm />
+            </div>
+          </div>
         </Container>
       </section>
+
+      {/* variant 3 */}
+      {/*<section className="py-20 scroll-mt-20 ">*/}
+      {/*  <Container className="flex flex-col gap-8">*/}
+      {/*    <div>*/}
+      {/*      <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">*/}
+      {/*        Остались вопросы? Напишите нам*/}
+      {/*      </h2>*/}
+      {/*      <div>*/}
+      {/*        <p className="text-gray-500 text-center text-xl">*/}
+      {/*          Dialogica – бизнес-партнер и суббренд TWIN*/}
+      {/*        </p>*/}
+      {/*        <p className="text-gray-500 text-center text-xl">*/}
+      {/*          Проконсультируем и поможем выбрать лучшие решения для ваших задач*/}
+      {/*        </p>*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+
+      {/*    <div className="gap-8  rounded-xl items-center  ">*/}
+      {/*      <div className="bg-white p-6 border border-gray-200 rounded-lg">*/}
+      {/*        <ContactForm onClose={() => {}} />*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*  </Container>*/}
+      {/*</section>*/}
     </main>
   );
 }

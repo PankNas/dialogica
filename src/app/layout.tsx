@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import { TwinWidget } from '@/features/twinWidget';
+import { Widget } from '@/features/widget';
 import { ReactNode } from 'react';
 import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
@@ -36,7 +36,7 @@ export default function RootLayout({
           <Footer />
         </div>
 
-        <TwinWidget />
+        <Widget />
       </body>
     </html>
   );

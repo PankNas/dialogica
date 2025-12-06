@@ -1,1 +1,3 @@
-export * from './ui';
+export * from './contactForm';
+export * from './label';
+export * from './formItem';
