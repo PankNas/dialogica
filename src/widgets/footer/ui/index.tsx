@@ -38,7 +38,7 @@ export const Footer = () => {
               info@dialogica24.ru
             </a>
             <a href="tel:89951318910" className="hover:text-white transition-colors">
-              +7 995 131-89-10
+              +7 (995) 131-89-10
             </a>
           </div>
 
