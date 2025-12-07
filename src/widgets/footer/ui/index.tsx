@@ -35,7 +35,8 @@ export const Footer = () => {
           <div className="flex flex-col gap-3">
             <h3 className="text-lg font-semibold text-white">Контакты</h3>
             <a href="mailto:info@dialogica24.ru" className="hover:text-white transition-colors">
-              info@dialogica24.ru
+              {/*info@dialogica24.ru*/}
+              {process.env.NEXT_PUBLIC_SMTP_USER}
             </a>
             <a href="tel:89951318910" className="hover:text-white transition-colors">
               +7 (995) 131-89-10

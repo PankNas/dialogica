@@ -18,14 +18,14 @@ export async function POST(req: Request) {
       port: Number(process.env.SMTP_PORT),
       secure: false,
       auth: {
-        user: process.env.SMTP_USER,
+        user: process.env.NEXT_PUBLIC_SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
     });
 
     await transporter.sendMail({
-      from: `"Dialogica" <${process.env.SMTP_USER}>`,
-      to: process.env.SMTP_USER,
+      from: `"Dialogica" <${process.env.NEXT_PUBLIC_SMTP_USER}>`,
+      to: process.env.NEXT_PUBLIC_SMTP_USER,
       subject: 'Новая заявка с сайта',
       html: `
         <h2>Новая заявка</h2>
