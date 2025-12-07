@@ -2,7 +2,7 @@
 
 import React, { FormEvent, useRef, useState } from 'react';
 import { formatRussianPhone, FormItem, Label } from '@/features/contactForm';
-import { Button, Input, Modal, Textarea } from '@/shared/ui';
+import { Button, Checkbox, Input, Loader, Textarea } from '@/shared/ui';
 
 const phonePattern = '8 (___) ___-__-__';
 
@@ -78,62 +78,63 @@ export const ContactForm = () => {
   };
 
   return (
-    <>
-      <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
-        <div className="flex gap-6">
-          <FormItem name="name" label="Имя" required>
-            <Input id="name" name="name" required placeholder="Введите ваше имя" />
-          </FormItem>
-
-          <FormItem name="phone" label="Телефон" required>
-            <Input
-              ref={phoneRef}
-              inputMode="numeric"
-              id="phone"
-              name="phone"
-              required
-              placeholder={phonePattern}
-              onInput={handlePhoneInput}
-              onPaste={handlePastePhoneInput}
-            />
-          </FormItem>
-        </div>
-
-        <FormItem name="company" label="Компания">
-          <Input id="company" name="company" placeholder="Название вашей компании" />
+    <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
+      <div className="flex gap-6">
+        <FormItem name="name" label="Имя" required>
+          <Input id="name" name="name" required placeholder="Введите ваше имя" />
         </FormItem>
 
-        <FormItem name="question" label="Вопрос / предложение" required>
-          <Textarea
+        <FormItem name="phone" label="Телефон" required>
+          <Input
+            ref={phoneRef}
+            inputMode="numeric"
+            id="phone"
+            name="phone"
             required
-            placeholder="Опишите ваш вопрос или предложение"
-            id="question"
-            name="question"
-            className="resize-none"
-            rows={3}
+            placeholder={phonePattern}
+            onInput={handlePhoneInput}
+            onPaste={handlePastePhoneInput}
           />
         </FormItem>
+      </div>
 
-        <FormItem name="privacy" className="flex-row">
-          <Input required id="privacy" name="privacy" type="checkbox" className="size-4" />
-          <Label htmlFor="privacy" className="inline">
-            <span>Нажимая кнопку я соглашаюсь с </span>
-            <a href="#" className="text-blue-600">
-              Политикой конфиденциальности
-            </a>
-            <span> и даю свое согласие на </span>
-            <a href="#" className="text-blue-600">
-              Обработку моих персональных данных
-            </a>
-          </Label>
-        </FormItem>
+      <FormItem name="company" label="Компания">
+        <Input id="company" name="company" placeholder="Название вашей компании" />
+      </FormItem>
 
-        <Button type="submit" className="w-full" disabled={loading}>
-          {loading && 'Подождите...'} Получить консультацию
-        </Button>
-      </form>
+      <FormItem name="question" label="Вопрос / предложение" required>
+        <Textarea
+          required
+          placeholder="Опишите ваш вопрос или предложение"
+          id="question"
+          name="question"
+          className="resize-none"
+          rows={3}
+        />
+      </FormItem>
 
-      {message && <Modal open>{message}</Modal>}
-    </>
+      <FormItem name="privacy" className="grid grid-cols-[auto_1fr]">
+        <Checkbox required id="privacy" name="privacy" />
+        <Label htmlFor="privacy" className="inline" required>
+          <span>Нажимая кнопку я соглашаюсь с </span>
+          <a href="#" className="text-blue-600">
+            Политикой конфиденциальности
+          </a>
+          <span> и даю свое согласие на </span>
+          <a href="#" className="text-blue-600">
+            Обработку моих персональных данных
+          </a>
+        </Label>
+      </FormItem>
+
+      <Button
+        type="submit"
+        className="w-full flex items-center gap-2 justify-center"
+        disabled={loading}
+      >
+        {loading && <Loader className="size-4" />}
+        Получить консультацию
+      </Button>
+    </form>
   );
 };

@@ -1,7 +1,7 @@
 import { InputHTMLAttributes, Ref } from 'react';
 import { mergeClassNames } from '@/shared/lib';
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   ref?: Ref<HTMLInputElement>;
 };
 
