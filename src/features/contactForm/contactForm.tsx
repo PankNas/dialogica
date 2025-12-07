@@ -1,8 +1,8 @@
 'use client';
 
-import React, { FormEvent, useRef } from 'react';
+import React, { FormEvent, useRef, useState } from 'react';
 import { formatRussianPhone, FormItem, Label } from '@/features/contactForm';
-import { Button, Input, Textarea } from '@/shared/ui';
+import { Button, Input, Modal, Textarea } from '@/shared/ui';
 
 const phonePattern = '8 (___) ___-__-__';
 
@@ -18,6 +18,9 @@ export const ContactForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
 
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -25,6 +28,7 @@ export const ContactForm = () => {
     const formValues = Object.fromEntries(formData.entries()) as ContactFormParams;
 
     try {
+      setLoading(true);
       const res = await fetch('/api/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -39,12 +43,14 @@ export const ContactForm = () => {
       const result = await res.json();
 
       if (result.ok) {
-        alert('Сообщение отправлено!');
+        setMessage('Сообщение отправлено!');
       } else {
-        alert('Ошибка отправки');
+        setMessage('Ошибка отправки');
       }
     } catch {
-      alert('Ошибка отправки');
+      setMessage('Ошибка отправки');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -72,58 +78,62 @@ export const ContactForm = () => {
   };
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
-      <div className="flex gap-6">
-        <FormItem name="name" label="Имя" required>
-          <Input id="name" name="name" required placeholder="Введите ваше имя" />
+    <>
+      <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <div className="flex gap-6">
+          <FormItem name="name" label="Имя" required>
+            <Input id="name" name="name" required placeholder="Введите ваше имя" />
+          </FormItem>
+
+          <FormItem name="phone" label="Телефон" required>
+            <Input
+              ref={phoneRef}
+              inputMode="numeric"
+              id="phone"
+              name="phone"
+              required
+              placeholder={phonePattern}
+              onInput={handlePhoneInput}
+              onPaste={handlePastePhoneInput}
+            />
+          </FormItem>
+        </div>
+
+        <FormItem name="company" label="Компания">
+          <Input id="company" name="company" placeholder="Название вашей компании" />
         </FormItem>
 
-        <FormItem name="phone" label="Телефон" required>
-          <Input
-            ref={phoneRef}
-            inputMode="numeric"
-            id="phone"
-            name="phone"
+        <FormItem name="question" label="Вопрос / предложение" required>
+          <Textarea
             required
-            placeholder={phonePattern}
-            onInput={handlePhoneInput}
-            onPaste={handlePastePhoneInput}
+            placeholder="Опишите ваш вопрос или предложение"
+            id="question"
+            name="question"
+            className="resize-none"
+            rows={3}
           />
         </FormItem>
-      </div>
 
-      <FormItem name="company" label="Компания">
-        <Input id="company" name="company" placeholder="Название вашей компании" />
-      </FormItem>
+        <FormItem name="privacy" className="flex-row">
+          <Input required id="privacy" name="privacy" type="checkbox" className="size-4" />
+          <Label htmlFor="privacy" className="inline">
+            <span>Нажимая кнопку я соглашаюсь с </span>
+            <a href="#" className="text-blue-600">
+              Политикой конфиденциальности
+            </a>
+            <span> и даю свое согласие на </span>
+            <a href="#" className="text-blue-600">
+              Обработку моих персональных данных
+            </a>
+          </Label>
+        </FormItem>
 
-      <FormItem name="question" label="Вопрос / предложение" required>
-        <Textarea
-          required
-          placeholder="Опишите ваш вопрос или предложение"
-          id="question"
-          name="question"
-          className="resize-none"
-          rows={3}
-        />
-      </FormItem>
+        <Button type="submit" className="w-full" disabled={loading}>
+          {loading && 'Подождите...'} Получить консультацию
+        </Button>
+      </form>
 
-      <FormItem name="privacy" className="flex-row">
-        <Input required id="privacy" name="privacy" type="checkbox" className="size-4" />
-        <Label htmlFor="privacy" className="inline">
-          <span>Нажимая кнопку я соглашаюсь с </span>
-          <a href="#" className="text-blue-600">
-            Политикой конфиденциальности
-          </a>
-          <span> и даю свое согласие на </span>
-          <a href="#" className="text-blue-600">
-            Обработку моих персональных данных
-          </a>
-        </Label>
-      </FormItem>
-
-      <Button type="submit" className="w-full">
-        Получить консультацию
-      </Button>
-    </form>
+      {message && <Modal open>{message}</Modal>}
+    </>
   );
 };

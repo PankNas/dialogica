@@ -1,6 +1,5 @@
-import clsx from 'clsx';
-import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { ButtonHTMLAttributes } from 'react';
+import { mergeClassNames } from '@/shared/lib';
 
 type IButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -10,11 +9,9 @@ export const Button = (props: IButtonProps) => {
   return (
     <button
       {...buttonProps}
-      className={twMerge(
-        clsx(
-          'cursor-pointer px-6 py-2.5 bg-cian text-white rounded-lg font-medium hover:bg-[#0D23CD] transition-colors w-fit',
-          className
-        )
+      className={mergeClassNames(
+        'cursor-pointer px-6 py-2.5 bg-cian text-white rounded-lg font-medium hover:bg-[#0D23CD] transition-colors w-fit disabled:opacity-40 disabled:cursor-not-allowed',
+        className
       )}
     >
       {children}
