@@ -4,7 +4,7 @@
 // import { Footer } from '@/widgets/footer/Footer';
 import { ProductCard } from '@/entities/product/ProductCard';
 import { TaskCard } from '@/entities/task/TaskCard';
-import { CONTACTS_ANCHOR, PRODUCTS_ANCHOR, TASKS_ANCHOR, WELCOME_ANCHOR } from '@/shared/config';
+import { CONTACTS_ANCHOR, FEEDBACK_ANCHOR, PRODUCTS_ANCHOR, TASKS_ANCHOR } from '@/shared/config';
 import RobotIcon from '@/shared/images/robot.png';
 // import Robot2Icon from '@/shared/images/robot3.svg';
 import Image from 'next/image';
@@ -138,7 +138,7 @@ export default function Home() {
 
   return (
     <main className="flex-1">
-      <section id={WELCOME_ANCHOR} className="bg-foreground">
+      <section className="bg-foreground">
         <Container className="flex gap-20 justify-center align-bottom relative h-[600px] ">
           <Image src={BusinessIcon} alt="" className="absolute opacity-35 top-0" />
 
@@ -279,7 +279,7 @@ export default function Home() {
       {/*</section>*/}
 
       {/*variant 2 */}
-      <section className="py-20 scroll-mt-20 bg-foreground">
+      <section id={FEEDBACK_ANCHOR} className="py-20 scroll-mt-20 bg-foreground">
         <Container className="flex flex-col gap-8">
           <div>
             <h2 className="text-4xl font-bold text-white mb-4 text-center">
