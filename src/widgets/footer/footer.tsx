@@ -17,7 +17,7 @@ export const Footer = () => {
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <Image src={LogoIcon} alt="Логотип компании" className="h-12 w-auto" />
             <a href="https://twin24.ai/" target="_blank">
-              <Image src={TwinIcon} alt="Логотип партнёра" className="h-10 w-auto opacity-80" />
+              <Image src={TwinIcon} alt="Логотип партнёра" className="h-10 w-auto" />
             </a>
           </div>
 
