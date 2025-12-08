@@ -14,7 +14,7 @@ export const Footer = () => {
       <Container className="mx-auto px-4 grid grid-cols-1 {/*md:grid-cols-[auto_1fr_1fr]*/} md:grid-cols-3 gap-10">
         {/* Left block — logos */}
         <div className="flex flex-col gap-6">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <Image src={LogoIcon} alt="Логотип компании" className="h-12 w-auto" />
             <a href="https://twin24.ai/" target="_blank">
               <Image src={TwinIcon} alt="Логотип партнёра" className="h-10 w-auto opacity-80" />
@@ -32,7 +32,7 @@ export const Footer = () => {
 
         {/* Center block — contacts */}
         <div className="flex flex-col justify-center {/*mt-[120px]*/}">
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 items-center md:items-start">
             <h3 className="text-lg font-semibold text-white">Контакты</h3>
             <a href="mailto:info@dialogica24.ru" className="hover:text-white transition-colors">
               {/*info@dialogica24.ru*/}
@@ -61,7 +61,7 @@ export const Footer = () => {
         {/*  />*/}
         {/*</div>*/}
 
-        <div className="flex flex-col gap-3 text-sm text-gray-500 relative">
+        <div className="flex flex-col gap-3 text-sm text-gray-500 relative items-center md:items-start">
           <p className="mt-auto">
             <span className="text-white/80">Dialogica</span> является официальным партнёром и
             суббрендом <span className="text-white/80">Twin</span>.
