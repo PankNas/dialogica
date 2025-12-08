@@ -28,6 +28,7 @@ import { ContactForm } from '@/features/contactForm';
 import CertificateIcon from '@/shared/images/certificate-2.jpg';
 import Certificate2Icon from '@/shared/images/certificate.jpg';
 import { ButtonLink } from '@/shared/ui/link';
+import { Tasks } from '@/app/tasks';
 
 const products = [
   {
@@ -893,34 +894,36 @@ export default function Home() {
         </Container>
       </section>
 
-      <section id={TASKS_ANCHOR} className="py-20 bg-white scroll-mt-20">
-        <Container className="flex flex-col gap-8">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Популярные задачи</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {tasks.map((task, index) => (
-              <TaskCard
-                key={index}
-                title={task.title}
-                description={task.description}
-                // className={clsx({ 'row-span-2': index === 0 })}
-                button
-                type={task.type as 'watch' | 'listen'}
-                sector={task.sector}
-                // video={index === 0}
-              />
-            ))}
-          </div>
+      {/*<section id={TASKS_ANCHOR} className="py-20 bg-white scroll-mt-20">*/}
+      {/*  <Container className="flex flex-col gap-8">*/}
+      {/*    <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Популярные задачи</h2>*/}
+      {/*    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">*/}
+      {/*      {tasks.map((task, index) => (*/}
+      {/*        <TaskCard*/}
+      {/*          key={index}*/}
+      {/*          title={task.title}*/}
+      {/*          description={task.description}*/}
+      {/*          // className={clsx({ 'row-span-2': index === 0 })}*/}
+      {/*          button*/}
+      {/*          type={task.type as 'watch' | 'listen'}*/}
+      {/*          sector={task.sector}*/}
+      {/*          // video={index === 0}*/}
+      {/*        />*/}
+      {/*      ))}*/}
+      {/*    </div>*/}
 
-          <div className="bg-gray-50 flex gap-10 p-4 rounded-xl justify-between items-center">
-            <p>
-              Остались вопросы? Проконсультируем по внедрению интеллектуальных систем и поможем
-              выбрать лучшее решение для ваших задач
-            </p>
+      {/*    <div className="bg-gray-50 flex gap-10 p-4 rounded-xl justify-between items-center">*/}
+      {/*      <p>*/}
+      {/*        Остались вопросы? Проконсультируем по внедрению интеллектуальных систем и поможем*/}
+      {/*        выбрать лучшее решение для ваших задач*/}
+      {/*      </p>*/}
 
-            <Button>Связаться</Button>
-          </div>
-        </Container>
-      </section>
+      {/*      <Button>Связаться</Button>*/}
+      {/*    </div>*/}
+      {/*  </Container>*/}
+      {/*</section>*/}
+
+      <Tasks />
 
       {/* variant 1 */}
       {/*<section className="py-20 scroll-mt-20">*/}
