@@ -1,82 +1,9 @@
 import { TaskCard } from '@/widgets/card';
 import { Container, GradientText, ButtonLink, TitleSection } from '@/shared/ui';
 import { FEEDBACK_ANCHOR, TASKS_ANCHOR } from '@/shared/config';
-import { mainAudio } from '@/app/config';
+import { mainAudio, mainVideo, taskCards } from '@/app/config';
 import { VideoPlayer } from '@/features/video';
 import { AudioCard } from '@/features/audio';
-
-const tasks = [
-  {
-    title: 'NPS - опрос о качестве обслуживания',
-    description:
-      'Звонки в удобное для клиентов время. Исключается человеческий фактор. Стоимость минуты разговора робота в 3-6 раз ниже.',
-    type: 'listen',
-    sector: 'Опросы',
-    videos: [],
-    audios: [],
-  },
-  {
-    title: 'Предсервисный опрос.\n' + 'Напоминание о визите',
-    description:
-      'Звонки в удобное для клиентов время. Исключается человеческий фактор. Стоимость минуты разговора робота в 3-6 раз ниже.',
-    type: 'listen',
-    sector: 'Опросы',
-  },
-  {
-    title: 'Бот AI-консультант по базе знаний',
-    description:
-      'Мгновенные ответы вместо долгого поиска по базе знаний. \n' +
-      'Сокращение ошибок вследствие легкого и простого доступа к информации.\n' +
-      'Единый источник истины',
-    sector: 'Опросы',
-    type: 'watch',
-  },
-  {
-    title: 'Привлечение клиентов по холодной базе',
-    description:
-      'Быстрый обзвон сотен клиентов.\n' +
-      'Автоматическое выявление горячих лидов по готовности к продолжению диалога.\n' +
-      'Низкая стоимость лида.',
-    type: 'listen',
-    sector: 'Продажи',
-  },
-  {
-    title: 'Обзвон по объявлениям о продаже с целью выкупа',
-    description:
-      'Сотрудники не тратят часы на «пустые» звонки, а концентрируются на работе с горячими клиентами. Сокращение затрат на обзвон в 3-6 раз.',
-    type: 'listen',
-    sector: 'Продажи',
-  },
-  {
-    title: 'Обзвон по рекомендациям при последнем визите',
-    description:
-      '10-15% дополнительного трафика с высоким средним чеком. \n' +
-      'Освобождение операторов от рутинных и непродуктивных звонков.',
-    type: 'listen',
-    sector: 'Продажи',
-  },
-  {
-    title: 'Запись на обслуживание на сайте и в мессенджерах',
-    description:
-      'Ни одного потерянного клиента.  Прием заявок 24/7, даже в нерабочее время и выходные. Возможность записи - там, где клиент всегда онлайн, где ему удобнее.',
-    sector: 'Клиентский сервис',
-    type: 'watch',
-  },
-  {
-    title: 'Приглашение на техническое обслуживании\n',
-    description:
-      'Проявление заботы о клиенте. Регулярное напоминание о ТО повышает удовлетворенность сервисом. Увеличение доли повторных визитов на сервис.',
-    type: 'listen',
-    sector: 'Клиентский сервис',
-  },
-  {
-    title: 'Омниканальная чат-платформа для операторов',
-    description:
-      '«Единое окно» — общение с клиентами из панели оператора, независимо от их канала (Telegram, WhatsApp, Viber, email, SMS). Развитая аналитика.',
-    sector: 'Клиентский сервис',
-    type: 'watch',
-  },
-];
 
 export const Tasks = () => {
   return (
@@ -102,9 +29,9 @@ export const Tasks = () => {
             {/* Видео-пример (самый главный) */}
             <div className="2xl:col-span-2">
               <VideoPlayer
-                title="Пример работы AI-бота в реальном времени"
-                description="Посмотрите, как AI-бот обрабатывает запросы клиентов и решает их проблемы"
-                sources={['/videos/ai-consultant.mp4']}
+                title={mainVideo.title}
+                description={mainVideo.description}
+                sources={mainVideo.url}
               />
             </div>
 
@@ -126,7 +53,7 @@ export const Tasks = () => {
 
         {/* Карточки задач */}
         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6 lg:gap-8">
-          {tasks.map((task, index) => (
+          {taskCards.map((task, index) => (
             <TaskCard
               key={index}
               title={task.title}
