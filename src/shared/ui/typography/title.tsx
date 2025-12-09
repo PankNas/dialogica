@@ -39,7 +39,7 @@ export const Title = (props: TitleProps) => {
       <h3
         style={props.style}
         className={mergeClassNames(
-          'font-semibold text-sm lg:text-base group-hover:text-blue-600 transition-colors',
+          'font-semibold text-xl lg:text-2xl group-hover:text-blue-600 transition-colors',
           props.className
         )}
       >

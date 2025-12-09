@@ -41,7 +41,9 @@ export const AudioCard = ({ audioUrl, title, description, className }: AudioCard
 
         {/* Информация об аудио */}
         <div className="flex-1 min-w-0">
-          <Title variant="h3">{title}</Title>
+          <Title variant="h3" className="text-lg lg:text-xl">
+            {title}
+          </Title>
           <p className="text-gray-600 text-xs lg:text-sm mt-1">{description}</p>
 
           {/* Контролы плеера */}

@@ -111,7 +111,9 @@ export const Header = () => {
           </nav>
 
           <div className="hidden md:block">
-            <ButtonLink href={`/#${FEEDBACK_ANCHOR}`}>Оставить заявку</ButtonLink>
+            <ButtonLink href={`/#${FEEDBACK_ANCHOR}`} className="hover:translate-y-0">
+              Оставить заявку
+            </ButtonLink>
           </div>
 
           {/* Бургер-меню для мобильных */}
