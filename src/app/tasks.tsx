@@ -92,7 +92,6 @@ export const Tasks = () => {
               Популярные <GradientText>задачи</GradientText>
             </>
           }
-          // description="Готовые решения для автоматизации коммуникаций в вашем бизнесе"
           description="Готовые примеры автоматизации, проверенные на практике"
           label="Наши решения"
         />
@@ -126,13 +125,12 @@ export const Tasks = () => {
         </div>
 
         {/* Карточки задач */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6 lg:gap-8">
           {tasks.map((task, index) => (
             <TaskCard
               key={index}
               title={task.title}
               description={task.description}
-              type={task.type as 'watch' | 'listen'}
               sector={task.sector}
               videos={task.videos}
               audios={task.audios}

@@ -8,7 +8,7 @@ export const VideoIcon = (props: VideoIconProps) => {
   return (
     <div
       className={mergeClassNames(
-        'flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/10 to-red-600/20 text-red-600 flex items-center justify-center transition-colors duration-200',
+        'flex-shrink-0 size-10 md:size-12 rounded-xl bg-gradient-to-br from-red-500/10 to-red-600/20 text-red-600 flex items-center justify-center transition-colors duration-200',
         props.className
       )}
     >

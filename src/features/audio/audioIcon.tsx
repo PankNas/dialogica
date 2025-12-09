@@ -10,7 +10,7 @@ export const AudioIcon = (props: AudioIconProps) => {
   return (
     <div
       className={mergeClassNames(
-        'flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 flex items-center justify-center transition-colors duration-200',
+        'flex-shrink-0 size-10 md:size-12 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 flex items-center justify-center transition-colors duration-200',
         { 'bg-gradient-to-br from-red-500/10 to-red-600/20 text-red-600': props.play },
         props.className
       )}

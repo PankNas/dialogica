@@ -2,6 +2,7 @@
 
 import { VideoIcon } from '@/features/video';
 import { mergeClassNames } from '@/shared/lib';
+import { Title } from '@/shared/ui';
 
 type VideoPlayerProps = {
   title: string;
@@ -22,9 +23,9 @@ export const VideoPlayer = (props: VideoPlayerProps) => {
       <div className="p-4 pb-0 flex gap-3 flex-1">
         <VideoIcon />
         <div>
-          <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+          <Title variant="h3" className="text-lg lg:text-xl mb-1">
             {props.title}
-          </h3>
+          </Title>
           {props.description && (
             <p className="text-gray-600 text-sm lg:text-base">{props.description}</p>
           )}

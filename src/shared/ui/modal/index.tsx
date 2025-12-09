@@ -35,7 +35,7 @@ export const Modal = (props: ModalProps) => {
       ref={dialogRef}
       onClose={props.onCloseAction}
       className={mergeClassNames(
-        'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-none bg-transparent rounded-lg focus-visible:outline-blue-200 focus-visible:outline-1  backdrop:bg-black/50 z-20'
+        'fixed inset-0 z-50 m-auto border-none bg-transparent rounded-lg backdrop:bg-black/50 backdrop:backdrop-blur-sm focus:outline-none'
       )}
     >
       <div className="bg-white rounded-lg p-6 max-w-lg flex items-center justify-center w-full">
