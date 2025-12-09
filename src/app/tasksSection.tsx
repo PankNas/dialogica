@@ -5,7 +5,7 @@ import { mainAudio, mainVideo, taskCards } from '@/app/config';
 import { VideoPlayer } from '@/features/video';
 import { AudioCard } from '@/features/audio';
 
-export const Tasks = () => {
+export const TasksSection = () => {
   return (
     <section
       id={TASKS_ANCHOR}

@@ -11,10 +11,10 @@ export const Label = (props: LabelProps) => {
   return (
     <label
       {...labelProps}
-      className={mergeClassNames('flex gap-1 text-sm font-medium text-gray-700 ', className)}
+      className={mergeClassNames('text-sm font-medium text-gray-700 ', className)}
     >
       {children}
-      {required && <span className="text-red-600">*</span>}
+      {required && <span className="text-red-600 ml-1">*</span>}
     </label>
   );
 };

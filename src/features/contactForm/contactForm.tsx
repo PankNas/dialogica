@@ -3,6 +3,7 @@
 import React, { FormEvent, useRef, useState } from 'react';
 import { formatRussianPhone, FormItem, Label } from '@/features/contactForm';
 import { Button, Checkbox, Input, Loader, Textarea } from '@/shared/ui';
+import { DocumentModal } from '@/widgets/document';
 
 const phonePattern = '8 (___) ___-__-__';
 
@@ -78,63 +79,61 @@ export const ContactForm = () => {
   };
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
-      <div className="flex gap-6">
-        <FormItem name="name" label="Имя" required>
-          <Input id="name" name="name" required placeholder="Введите ваше имя" />
+    <>
+      <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <div className="flex gap-6 flex-col md:flex-row">
+          <FormItem name="name" label="Имя" required>
+            <Input id="name" name="name" required placeholder="Введите ваше имя" />
+          </FormItem>
+
+          <FormItem name="phone" label="Телефон" required>
+            <Input
+              ref={phoneRef}
+              inputMode="numeric"
+              id="phone"
+              name="phone"
+              required
+              placeholder={phonePattern}
+              onInput={handlePhoneInput}
+              onPaste={handlePastePhoneInput}
+            />
+          </FormItem>
+        </div>
+
+        <FormItem name="company" label="Компания">
+          <Input id="company" name="company" placeholder="Название вашей компании" />
         </FormItem>
 
-        <FormItem name="phone" label="Телефон" required>
-          <Input
-            ref={phoneRef}
-            inputMode="numeric"
-            id="phone"
-            name="phone"
+        <FormItem name="question" label="Вопрос / предложение" required>
+          <Textarea
             required
-            placeholder={phonePattern}
-            onInput={handlePhoneInput}
-            onPaste={handlePastePhoneInput}
+            placeholder="Опишите ваш вопрос или предложение"
+            id="question"
+            name="question"
+            className="resize-none"
+            rows={3}
           />
         </FormItem>
-      </div>
 
-      <FormItem name="company" label="Компания">
-        <Input id="company" name="company" placeholder="Название вашей компании" />
-      </FormItem>
+        <FormItem name="privacy" className="grid grid-cols-[auto_1fr]">
+          <Checkbox required id="privacy" name="privacy" />
+          <Label htmlFor="privacy" className="inline" required>
+            <span>
+              <span>Даю согласие на </span>
+              <DocumentModal title="обработку персональных данных" variant="consentToProcessing" />
+            </span>
+          </Label>
+        </FormItem>
 
-      <FormItem name="question" label="Вопрос / предложение" required>
-        <Textarea
-          required
-          placeholder="Опишите ваш вопрос или предложение"
-          id="question"
-          name="question"
-          className="resize-none"
-          rows={3}
-        />
-      </FormItem>
-
-      <FormItem name="privacy" className="grid grid-cols-[auto_1fr]">
-        <Checkbox required id="privacy" name="privacy" />
-        <Label htmlFor="privacy" className="inline" required>
-          <span>Нажимая кнопку я соглашаюсь с </span>
-          <a href="#" className="text-blue-600">
-            Политикой конфиденциальности
-          </a>
-          <span> и даю свое согласие на </span>
-          <a href="#" className="text-blue-600">
-            Обработку моих персональных данных
-          </a>
-        </Label>
-      </FormItem>
-
-      <Button
-        type="submit"
-        className="w-full flex items-center gap-2 justify-center"
-        disabled={loading}
-      >
-        {loading && <Loader className="size-4" />}
-        Получить консультацию
-      </Button>
-    </form>
+        <Button
+          type="submit"
+          className="w-full flex items-center gap-2 justify-center"
+          disabled={loading}
+        >
+          {loading && <Loader className="size-4" />}
+          Получить консультацию
+        </Button>
+      </form>
+    </>
   );
 };

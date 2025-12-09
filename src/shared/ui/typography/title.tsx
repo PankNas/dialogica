@@ -27,10 +27,7 @@ export const Title = (props: TitleProps) => {
     return (
       <h2
         style={props.style}
-        className={mergeClassNames(
-          'text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900',
-          props.className
-        )}
+        className={mergeClassNames('text-3xl sm:text-4xl lg:text-5xl font-bold', props.className)}
       >
         {props.children}
       </h2>
@@ -42,7 +39,7 @@ export const Title = (props: TitleProps) => {
       <h3
         style={props.style}
         className={mergeClassNames(
-          'font-semibold text-gray-900 text-sm lg:text-base group-hover:text-blue-600 transition-colors',
+          'font-semibold text-sm lg:text-base group-hover:text-blue-600 transition-colors',
           props.className
         )}
       >
