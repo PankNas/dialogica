@@ -100,7 +100,10 @@ export const Header = () => {
                 key={item.name}
                 href={item.link}
                 replace
-                className="text-white text-base hover:text-gray-500 transition-colors duration-200"
+                className={mergeClassNames(
+                  'text-white text-base',
+                  'hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent'
+                )}
               >
                 {item.name}
               </Link>

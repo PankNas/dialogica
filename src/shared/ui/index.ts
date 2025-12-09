@@ -3,3 +3,4 @@ export * from './button';
 export * from './modal';
 export * from './input';
 export * from './loader';
+export * from './typography';
