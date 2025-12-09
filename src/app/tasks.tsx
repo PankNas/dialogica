@@ -2,7 +2,8 @@ import { TaskCard } from '@/entities/task/TaskCard';
 import { Container } from '@/shared/ui';
 import { FEEDBACK_ANCHOR, TASKS_ANCHOR } from '@/shared/config';
 import { ButtonLink } from '@/shared/ui/link';
-import AudioPlayer from '@/features/audio/audioPlayer';
+import { AudioPlayer } from '@/features/audio';
+import { mainAudio } from '@/app/config';
 
 const tasks = [
   {
@@ -112,7 +113,7 @@ export const Tasks = () => {
             <div className="h-px flex-1 bg-gradient-to-r from-blue-500/20 to-transparent"></div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 2xl:grid-cols-3 gap-6">
             {/* Видео-пример (самый главный) */}
             {/*<div className="lg:col-span-2">*/}
             {/*  <div className="group relative rounded-2xl overflow-hidden border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl bg-gradient-to-br from-gray-50 to-white">*/}
@@ -164,7 +165,7 @@ export const Tasks = () => {
             {/*  </div>*/}
             {/*</div>*/}
 
-            <div className="lg:col-span-2">
+            <div className="2xl:col-span-2">
               <div className="group relative rounded-2xl overflow-hidden border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl bg-gradient-to-br from-gray-50 to-white">
                 <div className="p-6 pb-4">
                   <div className="flex items-center gap-2 mb-4">
@@ -196,12 +197,17 @@ export const Tasks = () => {
             </div>
 
             {/* Аудио-примеры */}
-            <div className="space-y-6">
-              <AudioPlayer
-                audioUrl={'/audio/attracting-clients-for-massage-and-wellness.mp3'}
-                title={'test'}
-                description={'test'}
-              />
+            <div className="grid sm:grid-cols-2 2xl:grid-cols-1 gap-[inherit]">
+              {mainAudio.map((item) => {
+                return (
+                  <AudioPlayer
+                    key={item.title}
+                    audioUrl={item.url}
+                    title={item.title}
+                    description={item.description}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
@@ -237,17 +243,7 @@ export const Tasks = () => {
               href={`/${FEEDBACK_ANCHOR}`}
               className="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl shadow-lg shadow-blue-500/20 whitespace-nowrap"
             >
-              <span className="flex items-center gap-2">
-                Связаться с экспертом
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  ></path>
-                </svg>
-              </span>
+              Связаться с экспертом
             </ButtonLink>
           </div>
         </div>

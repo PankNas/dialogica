@@ -10,8 +10,8 @@ export const Button = (props: IButtonProps) => {
     <button
       {...buttonProps}
       className={mergeClassNames(
-        'cursor-pointer px-6 py-2.5 bg-blue-600 text-white rounded-lg font-medium transition-colors w-fit',
-        'hover:bg-blue-800',
+        'cursor-pointer px-6 py-2.5 bg-blue-500 text-white rounded-lg font-medium transition-colors w-fit',
+        'hover:bg-blue-600',
         'disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-cian',
         className
       )}

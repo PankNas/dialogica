@@ -6,11 +6,10 @@ import { Container } from '@/shared/ui';
 
 export const Footer = () => {
   return (
-    <footer
-      id={CONTACTS_ANCHOR}
-      className="bg-foreground text-gray-300 py-10 border-t border-gray-800"
-    >
-      <Container className="mx-auto px-4 grid grid-cols-1 {/*md:grid-cols-[auto_1fr_1fr]*/} md:grid-cols-3 gap-10">
+    <footer id={CONTACTS_ANCHOR} className="bg-foreground text-gray-300">
+      <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+
+      <Container className="mx-auto px-4 grid grid-cols-1 py-10 md:grid-cols-3 gap-10">
         {/* Left block — logos */}
         <div className="flex flex-wrap gap-4 justify-center md:justify-start">
           <Image src={LogoIcon} alt="Логотип компании" className="h-12 w-auto" />
