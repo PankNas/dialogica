@@ -1,11 +1,9 @@
-import { TaskCard } from '@/entities/task/TaskCard';
-import { Container, GradientText, Title, TitleSection } from '@/shared/ui';
+import { TaskCard } from '@/widgets/card';
+import { Container, GradientText, ButtonLink, TitleSection } from '@/shared/ui';
 import { FEEDBACK_ANCHOR, TASKS_ANCHOR } from '@/shared/config';
-import { ButtonLink } from '@/shared/ui/link';
-import { AudioPlayer } from '@/features/audio';
 import { mainAudio } from '@/app/config';
 import { VideoPlayer } from '@/features/video';
-import { AudioCard } from '@/features/audio/audioCard';
+import { AudioCard } from '@/features/audio';
 
 const tasks = [
   {
@@ -14,6 +12,8 @@ const tasks = [
       'Звонки в удобное для клиентов время. Исключается человеческий фактор. Стоимость минуты разговора робота в 3-6 раз ниже.',
     type: 'listen',
     sector: 'Опросы',
+    videos: [],
+    audios: [],
   },
   {
     title: 'Предсервисный опрос.\n' + 'Напоминание о визите',
@@ -92,12 +92,13 @@ export const Tasks = () => {
               Популярные <GradientText>задачи</GradientText>
             </>
           }
-          description="Готовые решения для автоматизации коммуникаций в вашем бизнесе"
-          label="Задачи"
+          // description="Готовые решения для автоматизации коммуникаций в вашем бизнесе"
+          description="Готовые примеры автоматизации, проверенные на практике"
+          label="Наши решения"
         />
 
         {/* Предпросмотр медиа-контента */}
-        <div className="mb-12 lg:mb-16">
+        <div>
           <div className="grid grid-cols-1 2xl:grid-cols-3 gap-6">
             {/* Видео-пример (самый главный) */}
             <div className="2xl:col-span-2">
@@ -125,7 +126,7 @@ export const Tasks = () => {
         </div>
 
         {/* Карточки задач */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {tasks.map((task, index) => (
             <TaskCard
               key={index}
@@ -133,7 +134,8 @@ export const Tasks = () => {
               description={task.description}
               type={task.type as 'watch' | 'listen'}
               sector={task.sector}
-              index={index}
+              videos={task.videos}
+              audios={task.audios}
             />
           ))}
         </div>
@@ -145,15 +147,12 @@ export const Tasks = () => {
                 Нужно индивидуальное решение?
               </h3>
               <p className="text-gray-600 lg:text-lg">
-                Остались вопросы? Проконсультируем по внедрению интеллектуальных систем и поможем
-                выбрать лучшее решение для ваших задач
+                Проконсультируем по внедрению интеллектуальных систем и поможем выбрать лучшее
+                решение для ваших задач
               </p>
             </div>
 
-            <ButtonLink
-              href={`/${FEEDBACK_ANCHOR}`}
-              className="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl shadow-lg shadow-blue-500/20 whitespace-nowrap"
-            >
+            <ButtonLink href={`/#${FEEDBACK_ANCHOR}`} gradient className="px-8 py-3.5">
               Связаться с экспертом
             </ButtonLink>
           </div>

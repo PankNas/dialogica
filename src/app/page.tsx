@@ -827,14 +827,16 @@ export default function Home() {
       {/*  </Container>*/}
       {/*</section>*/}
 
+      <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
+
       <section
         id={PRODUCTS_ANCHOR}
         className="py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white scroll-mt-20 relative overflow-hidden"
       >
         {/* Декоративные элементы */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
-        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-blue-500/5 blur-3xl"></div>
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-purple-500/5 blur-3xl"></div>
+        {/*<div className="w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>*/}
+        {/*<div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-blue-500/5 blur-3xl"></div>*/}
+        {/*<div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-purple-500/5 blur-3xl"></div>*/}
 
         <Container>
           {/* Заголовок с акцентом */}
