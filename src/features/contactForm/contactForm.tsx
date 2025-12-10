@@ -20,7 +20,7 @@ export const ContactForm = () => {
   const phoneRef = useRef<HTMLInputElement>(null);
 
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null); // todo: поправить
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
