@@ -84,9 +84,9 @@ export const Header = () => {
       ref={headerRef}
       className="sticky top-0 z-50 backdrop-blur-sm bg-foreground border-b border-gray-800"
     >
-      <Container className="py-3">
+      <Container className="py-3 relative">
         <div>
-          <div className="flex items-center justify-between relative gap-8">
+          <div className="flex items-center justify-between gap-8">
             {/* Логотип */}
             <div className="lg:flex-1">
               <Link href="/" onClick={handleNavClick} replace className="flex-shrink-0 z-10">
@@ -157,7 +157,7 @@ export const Header = () => {
           <div
             ref={menuRef}
             className={mergeClassNames(
-              'md:hidden bg-foreground transition-all duration-300 ease-out overflow-hidden opacity-0 invisible',
+              'md:hidden bg-foreground   border-b px-6 border-gray-800 absolute left-0 w-full pb-4  transition-all duration-300 ease-out overflow-hidden opacity-0 invisible',
               { 'opacity-100 visible': isMenuOpen }
             )}
             style={{
@@ -180,14 +180,16 @@ export const Header = () => {
                 ))}
               </nav>
 
-              <ButtonLink
-                href={`/#${FEEDBACK_ANCHOR}`}
-                onClick={handleNavClick}
-                animation={false}
-                className="w-full"
-              >
-                Оставить заявку
-              </ButtonLink>
+              <div className="pb-4">
+                <ButtonLink
+                  href={`/#${FEEDBACK_ANCHOR}`}
+                  onClick={handleNavClick}
+                  animation={false}
+                  className="w-full"
+                >
+                  Оставить заявку
+                </ButtonLink>
+              </div>
             </div>
           </div>
         </div>
