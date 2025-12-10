@@ -1,11 +1,21 @@
+import { TaskCardProps } from '@/widgets/card';
+
 type Media = {
   url: string;
   title: string;
   description: string;
 };
 
-export const mainVideo = {
-  url: ['/videos/ai-consultant.mp4'],
+type TaskCard = {
+  title: string;
+  description: string;
+  sector: string;
+  audios?: TaskCardProps['audios'];
+  videos?: TaskCardProps['videos'];
+};
+
+export const mainVideo: { sources: string[]; title: string; description?: string } = {
+  sources: ['/videos/ai-consultant.mp4'],
   title: 'Демонстрация работы AI-бота в реальном времени',
   description: 'Посмотрите, как AI-бот обрабатывает запросы клиентов и решает их проблемы',
 };
@@ -33,19 +43,26 @@ export const mainAudio: Media[] = [
   },
 ];
 
-export const taskCards = [
+export const taskCards: TaskCard[] = [
   {
     title: 'NPS - опрос о качестве обслуживания',
     description:
       'Звонки в удобное для клиентов время. Исключается человеческий фактор. Стоимость минуты разговора робота в 3-6 раз ниже.',
     sector: 'Опросы',
-    videos: [],
-    audios: [],
+    audios: [
+      {
+        title: 'NPS-опрос автосервис',
+        sources: '/audio/NPS-опрос_автосервис.wav',
+      },
+      { title: 'NPS-опрос недвижимость', sources: '/audio/NPS-опрос_недвижимость.mp3' },
+      { title: 'NPS-опроc салон красоты', sources: '/audio/NPS-опроc_салон_красоты.mp3' },
+    ],
   },
   {
-    title: 'Предсервисный опрос.\n' + 'Напоминание о визите',
+    title: 'Предсервисный опрос. Напоминание о визите',
     description:
-      'Звонки в удобное для клиентов время. Исключается человеческий фактор. Стоимость минуты разговора робота в 3-6 раз ниже.',
+      'Рост выручки на 4-7% за счет замещения клиентов, отказавшихся от визита.\n' +
+      'Сокращение числа непринятых звонков за счет освобождения операторов от рутины обзвона.',
     sector: 'Опросы',
   },
   {
@@ -55,6 +72,7 @@ export const taskCards = [
       'Сокращение ошибок вследствие легкого и простого доступа к информации.\n' +
       'Единый источник истины',
     sector: 'Опросы',
+    videos: [mainVideo],
   },
   {
     title: 'Привлечение клиентов по холодной базе',
@@ -82,6 +100,19 @@ export const taskCards = [
     description:
       'Ни одного потерянного клиента.  Прием заявок 24/7, даже в нерабочее время и выходные. Возможность записи - там, где клиент всегда онлайн, где ему удобнее.',
     sector: 'Клиентский сервис',
+    audios: [
+      {
+        sources: '/audio/record_dentistry.mp3',
+        title: 'Запись в стоматологию',
+      },
+      {
+        sources: '/audio/Консультирование_окна.mp3',
+        title: 'Консультирование на тему окон',
+      },
+    ],
+    videos: [
+      { title: 'Запись в автосервис (виджет)', sources: ['/videos/Запись_автосервис_виджет.mp4'] },
+    ],
   },
   {
     title: 'Приглашение на техническое обслуживании\n',

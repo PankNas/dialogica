@@ -8,7 +8,7 @@ import { Title } from '@/shared/ui';
 interface AudioCardProps {
   audioUrl: string;
   title: string;
-  description: string;
+  description?: string;
   className?: string;
 }
 
@@ -44,7 +44,7 @@ export const AudioCard = ({ audioUrl, title, description, className }: AudioCard
           <Title variant="h3" className="text-lg lg:text-xl">
             {title}
           </Title>
-          <p className="text-gray-600 text-xs lg:text-sm mt-1">{description}</p>
+          {description && <p className="text-gray-600 text-xs lg:text-sm mt-1">{description}</p>}
 
           {/* Контролы плеера */}
           <div className="mt-3 flex items-center gap-3">

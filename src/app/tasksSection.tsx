@@ -31,7 +31,7 @@ export const TasksSection = () => {
               <VideoPlayer
                 title={mainVideo.title}
                 description={mainVideo.description}
-                sources={mainVideo.url}
+                sources={mainVideo.sources}
               />
             </div>
 

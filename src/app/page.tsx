@@ -17,10 +17,10 @@ export default function Home() {
     <main className="flex-1">
       <section className="bg-foreground">
         {/* Фоновые декоративные элементы */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 -left-20 w-60 h-60 rounded-full bg-blue-500/10 blur-2xl"></div>
-          <div className="absolute bottom-20 -right-20 w-72 h-72 rounded-full bg-purple-500/10 blur-2xl"></div>
-        </div>
+        {/*<div className="absolute inset-0 z-0">*/}
+        {/*  <div className="absolute top-20 -left-20 w-60 h-60 rounded-full bg-blue-500/10 blur-2xl"></div>*/}
+        {/*  <div className="absolute bottom-20 right-0 w-72 h-72 rounded-full bg-purple-500/10 blur-2xl"></div>*/}
+        {/*</div>*/}
 
         <Container className="relative overflow-hidden">
           <div className="relative z-10 flex items-center justify-center py-12 lg:py-16">

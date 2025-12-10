@@ -7,7 +7,7 @@ import { Title } from '@/shared/ui';
 type ModalProps = {
   children: ReactNode;
   open: boolean;
-  title?: string;
+  title?: ReactNode;
   onCloseAction: () => void;
   size?: 'sm' | 'md' | 'lg' | 'xl';
 };

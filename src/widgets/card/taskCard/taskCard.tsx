@@ -1,18 +1,19 @@
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { Modal, Title } from '@/shared/ui';
+import { Title } from '@/shared/ui';
 import { VideoIcon } from '@/features/video';
 import { AudioIcon } from '@/features/audio';
 import Image from 'next/image';
 import ArrowLeftIcon from '@/shared/images/arrow-left.svg';
 import { useState } from 'react';
+import { MediaModal } from '@/widgets/card';
 
-interface TaskCardProps {
+export interface TaskCardProps {
   title: string;
   description: string;
   className?: string;
-  videos?: string[];
-  audios?: string[];
+  videos?: { title: string; sources: string[]; description?: string }[];
+  audios?: { title: string; sources: string; description?: string }[];
   sector?: string;
 }
 
@@ -21,6 +22,10 @@ export const TaskCard = (props: TaskCardProps) => {
 
   const handleClick = () => {
     setOpenModal(true);
+  };
+
+  const handleClose = () => {
+    setOpenModal(false);
   };
 
   return (
@@ -40,15 +45,14 @@ export const TaskCard = (props: TaskCardProps) => {
       >
         <div className="flex justify-between gap-3 items-start">
           {props.sector && (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-sm font-medium w-fit">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-              {props.sector}
+            <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium">
+              #{props.sector}
             </span>
           )}
 
           <div className="flex gap-3">
-            {props.videos && <VideoIcon />}
             {props.audios && <AudioIcon />}
+            {props.videos && <VideoIcon />}
           </div>
         </div>
 
@@ -66,15 +70,15 @@ export const TaskCard = (props: TaskCardProps) => {
         </div>
       </button>
 
-      <Modal open={openModal} onCloseAction={() => setOpenModal(false)} title={props.title}>
-        {!(props.videos && props.audios) ? (
-          <div className="h-32 flex items-center justify-center">
-            Совсем скоро мы опубликуем новый пример, а пока познакомьтесь с другими нашими кейсами
-          </div>
-        ) : (
-          <div></div>
-        )}
-      </Modal>
+      <MediaModal
+        title={props.title}
+        description={props.description}
+        open={openModal}
+        onClose={handleClose}
+        videos={props.videos}
+        audios={props.audios}
+        sector={props.sector}
+      />
     </>
   );
 };
