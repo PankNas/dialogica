@@ -1,5 +1,3 @@
-'use client';
-
 import { FEEDBACK_ANCHOR, TASKS_ANCHOR } from '@/shared/config';
 import { Container } from '@/shared/ui';
 import './index.css';
@@ -15,12 +13,12 @@ const Line = () => (
 export default function Home() {
   return (
     <main className="flex-1">
-      <section className="bg-foreground">
+      <section className="bg-foreground relative">
         {/* Фоновые декоративные элементы */}
-        {/*<div className="absolute inset-0 z-0">*/}
-        {/*  <div className="absolute top-20 -left-20 w-60 h-60 rounded-full bg-blue-500/10 blur-2xl"></div>*/}
-        {/*  <div className="absolute bottom-20 right-0 w-72 h-72 rounded-full bg-purple-500/10 blur-2xl"></div>*/}
-        {/*</div>*/}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <div className="absolute top-20 left-0 w-60 h-60 rounded-full bg-blue-500/10 blur-2xl -translate-x-1/2" />
+          <div className="absolute bottom-20 right-0 w-72 h-72 rounded-full bg-purple-500/10 blur-2xl translate-x-1/2" />
+        </div>
 
         <Container className="relative overflow-hidden">
           <div className="relative z-10 flex items-center justify-center py-12 lg:py-16">
@@ -59,7 +57,7 @@ export default function Home() {
                 </p>
 
                 {/* Блок преимуществ - компактный */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 lg:gap-4 mt-8 lg:mt-10">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mt-8 lg:mt-10">
                   {[
                     { icon: '🤖', title: 'AI-боты', desc: 'Умные ассистенты' },
                     { icon: '⚡', title: 'Быстрый запуск', desc: 'От 2-х недель' },
@@ -83,10 +81,11 @@ export default function Home() {
 
                 {/* CTA блок */}
                 <div className="mt-10 lg:mt-12 space-y-6">
-                  <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center justify-center">
                     <ButtonLink
                       href={`/#${FEEDBACK_ANCHOR}`}
-                      className="px-6 py-3.5 lg:px-8 lg:py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-xl text-base lg:text-lg shadow-lg shadow-blue-500/20"
+                      gradient
+                      className="px-6 py-3.5 lg:px-8 lg:py-4 font-semibold rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-xl text-base lg:text-lg shadow-lg shadow-blue-500/20"
                     >
                       <span className="flex items-center justify-center gap-2">
                         Бесплатная консультация
@@ -95,8 +94,7 @@ export default function Home() {
 
                     <ButtonLink
                       href={`/#${TASKS_ANCHOR}`}
-                      variant="outline"
-                      className="px-6 py-3.5 lg:px-8 lg:py-4 border border-white/20 hover:border-white/40 text-white font-semibold rounded-xl backdrop-blur-sm transition-all duration-200 text-base lg:text-lg"
+                      className="px-6 py-3.5 lg:px-8 lg:py-4 font-semibold backdrop-blur-sm transition-all duration-200 text-base lg:text-lg"
                     >
                       <span className="flex items-center justify-center gap-2">Примеры работ</span>
                     </ButtonLink>
