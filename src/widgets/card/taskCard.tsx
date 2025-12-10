@@ -66,8 +66,14 @@ export const TaskCard = (props: TaskCardProps) => {
         </div>
       </button>
 
-      <Modal open={openModal} onCloseAction={() => setOpenModal(false)}>
-        test
+      <Modal open={openModal} onCloseAction={() => setOpenModal(false)} title={props.title}>
+        {!(props.videos && props.audios) ? (
+          <div className="h-32 flex items-center justify-center">
+            Совсем скоро мы опубликуем новый пример, а пока познакомьтесь с другими нашими кейсами
+          </div>
+        ) : (
+          <div></div>
+        )}
       </Modal>
     </>
   );

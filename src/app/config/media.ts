@@ -6,7 +6,7 @@ type Media = {
 
 export const mainVideo = {
   url: ['/videos/ai-consultant.mp4'],
-  title: 'Пример работы AI-бота в реальном времени',
+  title: 'Демонстрация работы AI-бота в реальном времени',
   description: 'Посмотрите, как AI-бот обрабатывает запросы клиентов и решает их проблемы',
 };
 

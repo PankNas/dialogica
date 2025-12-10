@@ -7,7 +7,7 @@ const TextBold = (props: PropsWithChildren) => {
 
 // Создаем отдельный компонент для ссылки на политику конфиденциальности
 const PolicyLink = ({ onClick }: { onClick: () => void }) => (
-  <button
+  <span
     onClick={(e) => {
       e.preventDefault();
       onClick();
@@ -15,7 +15,7 @@ const PolicyLink = ({ onClick }: { onClick: () => void }) => (
     className="text-blue-500 hover:text-blue-600 font-semibold inline"
   >
     Политике конфиденциальности персональных данных
-  </button>
+  </span>
 );
 
 // Функция для создания контента, которая принимает обработчик клика

@@ -46,7 +46,7 @@ export const ProductsSection = () => {
   return (
     <section
       id={PRODUCTS_ANCHOR}
-      className="py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white scroll-mt-20 relative overflow-hidden"
+      className="py-10 md:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white scroll-mt-20 relative overflow-hidden"
     >
       <Container>
         {/* Заголовок с акцентом */}

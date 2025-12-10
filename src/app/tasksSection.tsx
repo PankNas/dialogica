@@ -9,7 +9,7 @@ export const TasksSection = () => {
   return (
     <section
       id={TASKS_ANCHOR}
-      className="py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50/50 scroll-mt-20 relative overflow-hidden"
+      className="py-10 md:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50/50 scroll-mt-20 relative overflow-hidden"
     >
       <Container>
         {/* Заголовок */}
