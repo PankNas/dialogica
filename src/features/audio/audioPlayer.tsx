@@ -151,6 +151,8 @@ export const AudioPlayer = ({
         preload="auto"
         onTimeUpdate={handleTimeUpdate}
         onEnded={handleEnded}
+        controls
+        className="w-full"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
       >
@@ -158,76 +160,76 @@ export const AudioPlayer = ({
         Ваш браузер не поддерживает аудио.
       </audio>
 
-      <div className="flex-1 min-w-0">
-        {/* Контролы плеера */}
-        <div className="mt-3 flex items-center gap-3">
-          <Button
-            className={mergeClassNames(
-              'p-0 w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed',
-              { 'bg-red-500 hover:bg-red-600': isPlaying }
-            )}
-            onClick={togglePlay}
-            aria-label={isPlaying ? 'Пауза' : 'Воспроизвести'}
-            disabled={!isLoaded || !!error}
-          >
-            {isPlaying ? (
-              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            ) : (
-              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            )}
-          </Button>
+      {/*<div className="flex-1 min-w-0">*/}
+      {/*  /!* Контролы плеера *!/*/}
+      {/*  <div className="mt-3 flex items-center gap-3">*/}
+      {/*    <Button*/}
+      {/*      className={mergeClassNames(*/}
+      {/*        'p-0 w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed',*/}
+      {/*        { 'bg-red-500 hover:bg-red-600': isPlaying }*/}
+      {/*      )}*/}
+      {/*      onClick={togglePlay}*/}
+      {/*      aria-label={isPlaying ? 'Пауза' : 'Воспроизвести'}*/}
+      {/*      disabled={!isLoaded || !!error}*/}
+      {/*    >*/}
+      {/*      {isPlaying ? (*/}
+      {/*        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">*/}
+      {/*          <path*/}
+      {/*            fillRule="evenodd"*/}
+      {/*            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"*/}
+      {/*            clipRule="evenodd"*/}
+      {/*          />*/}
+      {/*        </svg>*/}
+      {/*      ) : (*/}
+      {/*        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">*/}
+      {/*          <path*/}
+      {/*            fillRule="evenodd"*/}
+      {/*            d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"*/}
+      {/*            clipRule="evenodd"*/}
+      {/*          />*/}
+      {/*        </svg>*/}
+      {/*      )}*/}
+      {/*    </Button>*/}
 
-          {/* Прогресс-бар */}
-          <div className="flex-1 relative">
-            <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className={mergeClassNames(
-                  'h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-150',
-                  { 'opacity-40': error }
-                )}
-                style={{
-                  width: totalDuration > 0 ? `${(innerCurrentTime / totalDuration) * 100}%` : '0%',
-                }}
-              ></div>
-            </div>
-            <input
-              type="range"
-              min="0"
-              max={totalDuration || 100}
-              value={innerCurrentTime}
-              onChange={handleSeek}
-              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-not-allowed"
-              disabled={!isLoaded || totalDuration === 0 || !!error}
-              aria-label="Прогресс аудио"
-            />
-          </div>
+      {/*    /!* Прогресс-бар *!/*/}
+      {/*    <div className="flex-1 relative">*/}
+      {/*      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">*/}
+      {/*        <div*/}
+      {/*          className={mergeClassNames(*/}
+      {/*            'h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-150',*/}
+      {/*            { 'opacity-40': error }*/}
+      {/*          )}*/}
+      {/*          style={{*/}
+      {/*            width: totalDuration > 0 ? `${(innerCurrentTime / totalDuration) * 100}%` : '0%',*/}
+      {/*          }}*/}
+      {/*        ></div>*/}
+      {/*      </div>*/}
+      {/*      <input*/}
+      {/*        type="range"*/}
+      {/*        min="0"*/}
+      {/*        max={totalDuration || 100}*/}
+      {/*        value={innerCurrentTime}*/}
+      {/*        onChange={handleSeek}*/}
+      {/*        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-not-allowed"*/}
+      {/*        disabled={!isLoaded || totalDuration === 0 || !!error}*/}
+      {/*        aria-label="Прогресс аудио"*/}
+      {/*      />*/}
+      {/*    </div>*/}
 
-          {/* Тайминг */}
-          <div className="text-xs text-gray-600 min-w-[70px] text-right">
-            {error ? (
-              <span className="text-red-500">Ошибка</span>
-            ) : !isLoaded ? (
-              <span className="text-gray-400">Загрузка...</span>
-            ) : (
-              <>
-                {formatTime(innerCurrentTime)} / {formatTime(totalDuration)}
-              </>
-            )}
-          </div>
-        </div>
-      </div>
+      {/*    /!* Тайминг *!/*/}
+      {/*    <div className="text-xs text-gray-600 min-w-[70px] text-right">*/}
+      {/*      {error ? (*/}
+      {/*        <span className="text-red-500">Ошибка</span>*/}
+      {/*      ) : !isLoaded ? (*/}
+      {/*        <span className="text-gray-400">Загрузка...</span>*/}
+      {/*      ) : (*/}
+      {/*        <>*/}
+      {/*          {formatTime(innerCurrentTime)} / {formatTime(totalDuration)}*/}
+      {/*        </>*/}
+      {/*      )}*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </div>
   );
 };

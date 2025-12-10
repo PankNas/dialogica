@@ -31,7 +31,7 @@ export const Footer = () => {
           </a>
         </div>
 
-        <div className="flex flex-col gap-3 text-sm text-gray-500 relative items-center md:items-start">
+        <div className="flex flex-col gap-3 text-sm text-gray-500 relative text-center sm:text-left items-center md:items-start">
           <p className="mt-auto">
             <span className="text-white/80">Dialogica</span> является официальным партнёром и
             суббрендом <span className="text-white/80">Twin</span>.
