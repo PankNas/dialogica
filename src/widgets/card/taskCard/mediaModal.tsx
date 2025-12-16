@@ -95,7 +95,7 @@ export const MediaModal = (props: MediaModalProps) => {
             {props.videos && props.videos.length > 0 && (
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
                   <h3 className="text-lg font-semibold text-gray-900">Видео-демонстрация</h3>
                 </div>
 

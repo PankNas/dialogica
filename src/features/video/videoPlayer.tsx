@@ -1,5 +1,3 @@
-'use client';
-
 import { VideoIcon } from '@/features/video';
 import { mergeClassNames } from '@/shared/lib';
 import { Title } from '@/shared/ui';
@@ -32,14 +30,8 @@ export const VideoPlayer = (props: VideoPlayerProps) => {
         </div>
       </div>
 
-      <div className="size-full cursor-pointer shadow-2xl">
-        <video
-          className="size-full object-cover"
-          poster={props.poster}
-          preload="auto"
-          playsInline
-          controls
-        >
+      <div className="size-full cursor-pointer shadow-2xl bg-black flex justify-center">
+        <video className="object-cover" poster={props.poster} preload="auto" playsInline controls>
           {props.sources.map((source) => {
             const type = source.split('.').at(-1);
             return <source key={source} src={source} type={`video/${type}`} />;

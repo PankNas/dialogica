@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { mergeClassNames } from '@/shared/lib';
 import { AudioIcon, AudioPlayer } from '@/features/audio';
 import { Title } from '@/shared/ui';
@@ -13,8 +13,6 @@ interface AudioCardProps {
 }
 
 export const AudioCard = ({ audioUrl, title, description, className }: AudioCardProps) => {
-  const [currentTime, setCurrentTime] = useState(0);
-  const [error, setError] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const typeAudio = audioUrl.split('.').at(-1);
@@ -48,13 +46,7 @@ export const AudioCard = ({ audioUrl, title, description, className }: AudioCard
 
           {/* Контролы плеера */}
           <div className="mt-3 flex items-center gap-3">
-            <AudioPlayer
-              ref={audioRef}
-              audioUrl={audioUrl}
-              currentTime={currentTime}
-              onSetCurrentTime={setCurrentTime}
-              onSetError={setError}
-            />
+            <AudioPlayer ref={audioRef} audioUrl={audioUrl} />
           </div>
         </div>
       </div>
@@ -64,7 +56,6 @@ export const AudioCard = ({ audioUrl, title, description, className }: AudioCard
         <button
           className="text-xs text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={() => window.open(audioUrl, '_blank')}
-          disabled={!!error}
         >
           Открыть отдельно
           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,7 +72,6 @@ export const AudioCard = ({ audioUrl, title, description, className }: AudioCard
           <button
             className="text-xs text-gray-500 hover:text-gray-700 flex items-center gap-1 disabled:opacity-50 disabled:cursor-not-allowed"
             onClick={handleDownloadVideo}
-            disabled={!!error}
           >
             Скачать
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,10 +91,8 @@ export const AudioCard = ({ audioUrl, title, description, className }: AudioCard
             onClick={() => {
               if (audioRef.current) {
                 audioRef.current.currentTime = 0;
-                setCurrentTime(0);
               }
             }}
-            disabled={!!error}
           >
             С начала
           </button>
