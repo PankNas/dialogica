@@ -5,6 +5,7 @@ import { Widget } from '@/features/widget';
 import { ReactNode } from 'react';
 import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
+import { Metrics } from '@/features/metrics';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -30,6 +31,8 @@ export default function RootLayout({
   return (
     <html lang="ru" data-scroll-behavior="smooth">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Metrics />
+
         <div className="flex flex-col">
           <Header />
           {children}
