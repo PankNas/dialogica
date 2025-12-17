@@ -46,13 +46,13 @@ export const ContactForm = () => {
       const result = await res.json();
 
       if (result.ok) {
-        alert.addAlert(`Сообщение отправлено! ${Date.now()}`);
+        alert.addAlert(`Сообщение отправлено! ${Date.now()}`, 'success');
         // formRef.current?.reset();
       } else {
-        alert.addAlert('Ошибка отправки');
+        alert.addAlert('Ошибка отправки', 'error');
       }
     } catch {
-      alert.addAlert('Ошибка отправки');
+      alert.addAlert('Ошибка отправки', 'error');
     } finally {
       setLoading(false);
     }
