@@ -17,8 +17,8 @@ export const Widget = () => {
           host: widgetRef.current,
           injectStyles: `
             [data-id=chat-host] {
-              bottom: 8px;
-              right: 8px;
+              bottom: 20px;
+              right: 20px;
               align-items: end;
             }
           `,

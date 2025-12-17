@@ -4,6 +4,7 @@ import React, { FormEvent, useRef, useState } from 'react';
 import { formatRussianPhone, FormItem, Label } from '@/features/contactForm';
 import { Button, Checkbox, Input, Loader, Textarea } from '@/shared/ui';
 import { DocumentModal } from '@/widgets/document';
+import { useAlert } from '@/shared/ui/alert';
 
 const phonePattern = '8 (___) ___-__-__';
 
@@ -20,7 +21,8 @@ export const ContactForm = () => {
   const phoneRef = useRef<HTMLInputElement>(null);
 
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<string | null>(null); // todo: поправить
+
+  const alert = useAlert();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,12 +46,13 @@ export const ContactForm = () => {
       const result = await res.json();
 
       if (result.ok) {
-        setMessage('Сообщение отправлено!');
+        alert.addAlert(`Сообщение отправлено! ${Date.now()}`);
+        // formRef.current?.reset();
       } else {
-        setMessage('Ошибка отправки');
+        alert.addAlert('Ошибка отправки');
       }
     } catch {
-      setMessage('Ошибка отправки');
+      alert.addAlert('Ошибка отправки');
     } finally {
       setLoading(false);
     }
