@@ -1,10 +1,14 @@
+'use client';
+
 import React, { MouseEvent, useState } from 'react';
 import { Modal } from '@/shared/ui';
 import { createDocuments } from './config';
+import { mergeClassNames } from '@/shared/lib';
 
 type DocumentModalProps = {
   title: string;
   variant: 'consentToProcessing' | 'dataProtectionPolicy';
+  className?: string;
 };
 
 export const DocumentModal = (props: DocumentModalProps) => {
@@ -23,7 +27,10 @@ export const DocumentModal = (props: DocumentModalProps) => {
 
   return (
     <>
-      <button onClick={handleClickDocument} className="text-blue-500 hover:text-blue-600 inline">
+      <button
+        onClick={handleClickDocument}
+        className={mergeClassNames('text-blue-500 hover:text-blue-600 inline', props.className)}
+      >
         {props.title}
       </button>
 

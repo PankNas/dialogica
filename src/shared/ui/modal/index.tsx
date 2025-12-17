@@ -45,11 +45,11 @@ export const Modal = (props: ModalProps) => {
       ref={dialogRef}
       onClose={props.onCloseAction}
       className={mergeClassNames(
-        'fixed inset-0 z-50 m-auto border-none bg-transparent rounded-lg backdrop:bg-black/50 backdrop:backdrop-blur-sm focus:outline-none',
+        'custom-scrollbar fixed inset-0 z-50 m-auto border-none bg-transparent rounded-lg backdrop:bg-black/50 backdrop:backdrop-blur-sm focus:outline-none',
         sizeClasses[props.size || 'xl']
       )}
     >
-      <div className="scroll-container bg-white rounded-lg p-6 flex flex-col gap-6 w-full overflow-auto">
+      <div className="scroll-container bg-white p-6 flex flex-col gap-6 w-full overflow-auto">
         <div className="flex justify-end">
           <button onClick={props.onCloseAction} className="text-gray-500 hover:text-blue-600">
             <svg
