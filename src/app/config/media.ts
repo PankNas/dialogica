@@ -102,7 +102,6 @@ export const taskCards: TaskCard[] = [
       },
     ],
   },
-  /* ------------------------------------ */
   {
     title: 'Привлечение клиентов по холодной базе',
     description:
@@ -112,36 +111,36 @@ export const taskCards: TaskCard[] = [
     sector: 'Продажи',
     audios: [
       {
-        title: 'Привлечение клиентов барбершоп',
-        sources: '/tasks/attachingClients/Привлечение_клиентов_барбершоп.mp3',
+        title: 'Привлечение клиентов в барбершоп',
+        sources: '/tasks/attractingClients/Привлечение_клиентов_барбершоп.mp3',
       },
       {
         title: 'Привлечение клиентов возьмите нас на работу',
-        sources: '/tasks/attachingClients/Привлечение_клиентов_возьмите_нас_на_работу.mp3',
+        sources: '/tasks/attractingClients/Привлечение_клиентов_возьмите_нас_на_работу.mp3',
       },
       {
         title: 'Привлечение клиентов массаж и оздоровление',
-        sources: '/tasks/attachingClients/Привлечение_клиентов_массаж_и_оздоровление.mp3',
+        sources: '/tasks/attractingClients/Привлечение_клиентов_массаж_и_оздоровление.mp3',
       },
       {
         title: 'Привлечение клиентов офисная недвижимость',
-        sources: '/tasks/attachingClients/Привлечение_клиентов_офисная_недвижимость.mp3',
+        sources: '/tasks/attractingClients/Привлечение_клиентов_офисная_недвижимость.mp3',
       },
       {
         title: 'Привлечение клиентов салон красоты',
-        sources: '/tasks/attachingClients/Привлечение_клиентов_салон_красоты.wav',
+        sources: '/tasks/attractingClients/Привлечение_клиентов_салон_красоты.wav',
       },
       {
         title: 'Привлечение клиентов финансы',
-        sources: '/tasks/attachingClients/Привлечение_клиентов_финансы.mp3',
+        sources: '/tasks/attractingClients/Привлечение_клиентов_финансы.mp3',
       },
       {
         title: 'Привлечение клиентов фитнес центр',
-        sources: '/tasks/attachingClients/Привлечение_клиентов_фитнес_центр.mp3',
+        sources: '/tasks/attractingClients/Привлечение_клиентов_фитнес_центр.mp3',
       },
       {
         title: 'Привлечение клиентов языковая школа',
-        sources: '/tasks/attachingClients/Привлечение_клиентов_языковая_школа.mp3',
+        sources: '/tasks/attractingClients/Привлечение_клиентов_языковая_школа.mp3',
       },
     ],
   },
@@ -175,18 +174,18 @@ export const taskCards: TaskCard[] = [
     sector: 'Клиентский сервис',
     audios: [
       {
-        sources: '/signUpForService/Запись_стоматология.mp3',
+        sources: '/tasks/signUpForService/Запись_стоматология.mp3',
         title: 'Запись в стоматологию',
       },
       {
-        sources: '/signUpForService/Консультирование_окна.mp3',
+        sources: '/tasks/signUpForService/Консультирование_окна.mp3',
         title: 'Консультирование на тему окон',
       },
     ],
     videos: [
       {
         title: 'Запись в автосервис (виджет)',
-        sources: ['/signUpForService/Запись_автосервис_виджет.mp4'],
+        sources: ['/tasks/signUpForService/Запись_автосервис_виджет.mp4'],
       },
     ],
   },
@@ -197,19 +196,19 @@ export const taskCards: TaskCard[] = [
     sector: 'Клиентский сервис',
     audios: [
       {
-        sources: '/invitationToMaintenance/Напоминание_ОСАГО.mp3',
+        sources: '/tasks/invitationToMaintenance/Напоминание_ОСАГО.mp3',
         title: 'Напоминание ОСАГО',
       },
       {
-        sources: '/invitationToMaintenance/Приглашение_мероприятие.mp3',
+        sources: '/tasks/invitationToMaintenance/Приглашение_мероприятие.mp3',
         title: 'Приглашение мероприятие',
       },
       {
-        sources: '/invitationToMaintenance/Приглашение_на_акцию_СПА-центр.mp3',
+        sources: '/tasks/invitationToMaintenance/Приглашение_на_акцию_СПА-центр.mp3',
         title: 'Приглашение на акцию СПА-центр',
       },
       {
-        sources: '/invitationToMaintenance/Приглашение_театр.mp3',
+        sources: '/tasks/invitationToMaintenance/Приглашение_театр.mp3',
         title: 'Приглашение театр',
       },
     ],

@@ -33,11 +33,13 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-3 text-sm text-gray-500 relative text-center sm:text-left items-center md:items-start">
-          <DocumentModal
-            title="Политика конфиденциальности"
-            variant="dataProtectionPolicy"
-            className="text-left"
-          />
+          <div className="text-left">
+            <DocumentModal
+              title="Политика конфиденциальности"
+              variant="dataProtectionPolicy"
+              className="text-left"
+            />
+          </div>
 
           <p className="mt-auto">
             <span className="text-white/80">Dialogica</span> является официальным партнёром и
