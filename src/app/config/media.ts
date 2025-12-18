@@ -15,29 +15,29 @@ type TaskCard = {
 };
 
 export const mainVideo: { sources: string[]; title: string; description?: string } = {
-  sources: ['/videos/ai-consultant.mp4'],
-  title: 'Демонстрация работы AI-бота в реальном времени',
-  description: 'Посмотрите, как AI-бот обрабатывает запросы клиентов и решает их проблемы',
+  sources: ['/tasks/chatPlatform/Омниканальная_чат-платформа.mp4'],
+  title: 'Демонстрация работы чат-платформы в реальном времени',
+  description: 'Посмотрите, как устроена чат-платформа для операторов',
 };
 
 export const mainAudio: Media[] = [
   {
-    url: '/audio/attracting-clients-for-massage-and-wellness.mp3',
-    title: 'Привлечение клиентов на массаж и оздоравление',
+    url: '/tasks/attractingClients/Привлечение_клиентов_массаж_и_оздоровление.mp3',
+    title: 'Привлечение клиентов на массаж и оздоровление',
     description: '',
   },
   {
-    url: '/audio/calling_on_recommendations_autoservice2.mp3',
+    url: '/tasks/callingByRecommendations/Обзвон_по_рекомендациям_автосервис1.mp3',
     title: 'Обзвон по рекомендациям из автосервиса',
     description: '',
   },
   {
-    url: '/audio/record_dentistry.mp3',
+    url: '/tasks/signUpForService/Запись_стоматология.mp3',
     title: 'Запись в стоматологию',
     description: '',
   },
   {
-    url: '/audio/invitation_event.mp3',
+    url: '/tasks/invitationToMaintenance/Приглашение_мероприятие.mp3',
     title: 'Приглашение на мероприятие',
     description: '',
   },
@@ -52,10 +52,10 @@ export const taskCards: TaskCard[] = [
     audios: [
       {
         title: 'NPS-опрос автосервис',
-        sources: '/audio/NPS-опрос_автосервис.wav',
+        sources: '/tasks/nps/NPS-опрос_автосервис.wav',
       },
-      { title: 'NPS-опрос недвижимость', sources: '/audio/NPS-опрос_недвижимость.mp3' },
-      { title: 'NPS-опроc салон красоты', sources: '/audio/NPS-опроc_салон_красоты.mp3' },
+      { title: 'NPS-опрос недвижимость', sources: '/tasks/nps/NPS-опрос_недвижимость.mp3' },
+      { title: 'NPS-опроc салон красоты', sources: '/tasks/nps/NPS-опроc_салон_красоты.mp3' },
     ],
   },
   {
@@ -64,6 +64,28 @@ export const taskCards: TaskCard[] = [
       'Рост выручки на 4-7% за счет замещения клиентов, отказавшихся от визита.\n' +
       'Сокращение числа непринятых звонков за счет освобождения операторов от рутины обзвона.',
     sector: 'Опросы',
+    audios: [
+      {
+        title: 'Напоминание о вебинаре',
+        sources: '/tasks/preServiceSurvey/Напоминание_вебинар.mp3',
+      },
+      {
+        title: 'Предсервисный опрос автосервис',
+        sources: '/tasks/preServiceSurvey/Предсервисный_опрос_автосервис.mp3',
+      },
+      {
+        title: 'Предсервисный опрос автосервис автоответчик',
+        sources: '/tasks/preServiceSurvey/Предсервисный_опрос_автосервис_автоответчик.mp3',
+      },
+      {
+        title: 'Предсервисный опрос стоматология',
+        sources: '/tasks/preServiceSurvey/Предсервисный_опрос_стоматология.mp3',
+      },
+      {
+        title: 'Предсервисный отказ',
+        sources: '/tasks/preServiceSurvey/Предсервисный_отказ.wav',
+      },
+    ],
   },
   {
     title: 'Бот AI-консультант по базе знаний',
@@ -72,8 +94,15 @@ export const taskCards: TaskCard[] = [
       'Сокращение ошибок вследствие легкого и простого доступа к информации.\n' +
       'Единый источник истины',
     sector: 'Опросы',
-    videos: [mainVideo],
+    videos: [
+      {
+        sources: ['/tasks/aiConsultant/ai-consultant.mp4'],
+        title: 'Демонстрация работы AI-бота в реальном времени',
+        description: 'Посмотрите, как AI-бот обрабатывает запросы клиентов и решает их проблемы',
+      },
+    ],
   },
+  /* ------------------------------------ */
   {
     title: 'Привлечение клиентов по холодной базе',
     description:
@@ -81,6 +110,40 @@ export const taskCards: TaskCard[] = [
       'Автоматическое выявление горячих лидов по готовности к продолжению диалога.\n' +
       'Низкая стоимость лида.',
     sector: 'Продажи',
+    audios: [
+      {
+        title: 'Привлечение клиентов барбершоп',
+        sources: '/tasks/attachingClients/Привлечение_клиентов_барбершоп.mp3',
+      },
+      {
+        title: 'Привлечение клиентов возьмите нас на работу',
+        sources: '/tasks/attachingClients/Привлечение_клиентов_возьмите_нас_на_работу.mp3',
+      },
+      {
+        title: 'Привлечение клиентов массаж и оздоровление',
+        sources: '/tasks/attachingClients/Привлечение_клиентов_массаж_и_оздоровление.mp3',
+      },
+      {
+        title: 'Привлечение клиентов офисная недвижимость',
+        sources: '/tasks/attachingClients/Привлечение_клиентов_офисная_недвижимость.mp3',
+      },
+      {
+        title: 'Привлечение клиентов салон красоты',
+        sources: '/tasks/attachingClients/Привлечение_клиентов_салон_красоты.wav',
+      },
+      {
+        title: 'Привлечение клиентов финансы',
+        sources: '/tasks/attachingClients/Привлечение_клиентов_финансы.mp3',
+      },
+      {
+        title: 'Привлечение клиентов фитнес центр',
+        sources: '/tasks/attachingClients/Привлечение_клиентов_фитнес_центр.mp3',
+      },
+      {
+        title: 'Привлечение клиентов языковая школа',
+        sources: '/tasks/attachingClients/Привлечение_клиентов_языковая_школа.mp3',
+      },
+    ],
   },
   {
     title: 'Обзвон по объявлениям о продаже с целью выкупа',
@@ -94,6 +157,16 @@ export const taskCards: TaskCard[] = [
       '10-15% дополнительного трафика с высоким средним чеком. \n' +
       'Освобождение операторов от рутинных и непродуктивных звонков.',
     sector: 'Продажи',
+    audios: [
+      {
+        title: 'Обзвон по рекомендациям автосервис 1',
+        sources: '/tasks/callingByRecommendations/Обзвон_по_рекомендациям_автосервис1.mp3',
+      },
+      {
+        title: 'Обзвон по рекомендациям автосервис 2',
+        sources: '/tasks/callingByRecommendations/Обзвон_по_рекомендациям_автосервис2.mp3',
+      },
+    ],
   },
   {
     title: 'Запись на обслуживание на сайте и в мессенджерах',
@@ -102,16 +175,19 @@ export const taskCards: TaskCard[] = [
     sector: 'Клиентский сервис',
     audios: [
       {
-        sources: '/audio/record_dentistry.mp3',
+        sources: '/signUpForService/Запись_стоматология.mp3',
         title: 'Запись в стоматологию',
       },
       {
-        sources: '/audio/Консультирование_окна.mp3',
+        sources: '/signUpForService/Консультирование_окна.mp3',
         title: 'Консультирование на тему окон',
       },
     ],
     videos: [
-      { title: 'Запись в автосервис (виджет)', sources: ['/videos/Запись_автосервис_виджет.mp4'] },
+      {
+        title: 'Запись в автосервис (виджет)',
+        sources: ['/signUpForService/Запись_автосервис_виджет.mp4'],
+      },
     ],
   },
   {
@@ -119,11 +195,30 @@ export const taskCards: TaskCard[] = [
     description:
       'Проявление заботы о клиенте. Регулярное напоминание о ТО повышает удовлетворенность сервисом. Увеличение доли повторных визитов на сервис.',
     sector: 'Клиентский сервис',
+    audios: [
+      {
+        sources: '/invitationToMaintenance/Напоминание_ОСАГО.mp3',
+        title: 'Напоминание ОСАГО',
+      },
+      {
+        sources: '/invitationToMaintenance/Приглашение_мероприятие.mp3',
+        title: 'Приглашение мероприятие',
+      },
+      {
+        sources: '/invitationToMaintenance/Приглашение_на_акцию_СПА-центр.mp3',
+        title: 'Приглашение на акцию СПА-центр',
+      },
+      {
+        sources: '/invitationToMaintenance/Приглашение_театр.mp3',
+        title: 'Приглашение театр',
+      },
+    ],
   },
   {
     title: 'Омниканальная чат-платформа для операторов',
     description:
       '«Единое окно» — общение с клиентами из панели оператора, независимо от их канала (Telegram, WhatsApp, Viber, email, SMS). Развитая аналитика.',
     sector: 'Клиентский сервис',
+    videos: [mainVideo],
   },
 ];
