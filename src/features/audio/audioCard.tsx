@@ -38,14 +38,14 @@ export const AudioCard = ({ audioUrl, title, description, className }: AudioCard
         <AudioIcon />
 
         {/* Информация об аудио */}
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 flex flex-col min-w-0 h-full">
           <Title variant="h3" className="text-lg lg:text-xl">
             {title}
           </Title>
           {description && <p className="text-gray-600 text-xs lg:text-sm mt-1">{description}</p>}
 
           {/* Контролы плеера */}
-          <div className="mt-3 flex items-center gap-3">
+          <div className="pt-3 mt-auto flex items-center gap-3 ">
             <AudioPlayer ref={audioRef} audioUrl={audioUrl} />
           </div>
         </div>

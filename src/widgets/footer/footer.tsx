@@ -3,7 +3,6 @@ import LogoIcon from '@/shared/images/logo.svg';
 import Image from 'next/image';
 import { CONTACTS_ANCHOR } from '@/shared/config';
 import { Container } from '@/shared/ui';
-import { DocumentModal } from '@/features/document';
 
 export const Footer = () => {
   return (
@@ -33,13 +32,12 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-3 text-sm text-gray-500 relative text-center sm:text-left items-center md:items-start">
-          <div className="text-left">
-            <DocumentModal
-              title="Политика конфиденциальности"
-              variant="dataProtectionPolicy"
-              className="text-left"
-            />
-          </div>
+          <a
+            href="/documents/Политика_в_отношении_обработки_персональных_данных.pdf"
+            target="_blank"
+          >
+            Политика в отношении обработки персональных данных
+          </a>
 
           <p className="mt-auto">
             <span className="text-white/80">Dialogica</span> является официальным партнёром и

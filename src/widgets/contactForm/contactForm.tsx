@@ -2,7 +2,7 @@
 
 import React, { FormEvent, useRef, useState } from 'react';
 import { formatRussianPhone, FormItem, Label } from '@/widgets/contactForm';
-import { Button, Checkbox, Input, Loader, Textarea } from '@/shared/ui';
+import { Button, Checkbox, Input, Loader, OuterLink, Textarea } from '@/shared/ui';
 import { DocumentModal } from '@/features/document';
 
 const phonePattern = '8 (___) ___-__-__';
@@ -120,7 +120,9 @@ export const ContactForm = () => {
           <Label htmlFor="privacy" className="inline" required>
             <span>
               <span>Даю согласие на </span>
-              <DocumentModal title="обработку персональных данных" variant="consentToProcessing" />
+              <OuterLink href="/documents/Согласие_на_обработку_персональных_данных.pdf">
+                обработку персональных данных
+              </OuterLink>
             </span>
           </Label>
         </FormItem>
