@@ -34,7 +34,7 @@ export const Footer = () => {
           </a>
         </div>
 
-        <div className="flex flex-col gap-3 relative text-center sm:text-left items-center md:items-start">
+        <div className="flex flex-col gap-3 text-center md:text-left items-center md:items-start">
           <OuterLink
             href="/documents/Политика_в_отношении_обработки_персональных_данных.pdf"
             className="text-gray-300 hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent"

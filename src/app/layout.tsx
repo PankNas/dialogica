@@ -6,6 +6,7 @@ import { ReactNode } from 'react';
 import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
 import { Metrics } from '@/features/metrics';
+import { MediaProvider } from '@/app/providers';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -33,11 +34,13 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Metrics />
 
-        <div className="flex flex-col">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+        <MediaProvider>
+          <div className="flex flex-col">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </MediaProvider>
 
         <Widget />
       </body>

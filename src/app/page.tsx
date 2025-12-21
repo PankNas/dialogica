@@ -66,7 +66,7 @@ export default function Home() {
                   ].map((item, index) => (
                     <div
                       key={index}
-                      className="group p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-200"
+                      className="group p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10"
                     >
                       <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center mb-3 mx-auto">
                         <span className="text-lg">{item.icon}</span>

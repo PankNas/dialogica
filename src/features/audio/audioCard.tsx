@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { mergeClassNames } from '@/shared/lib';
 import { AudioIcon, AudioPlayer } from '@/features/audio';
 import { Title } from '@/shared/ui';
+import { useMedia } from '@/shared/hooks';
 
 interface AudioCardProps {
   audioUrl: string;
@@ -14,6 +15,7 @@ interface AudioCardProps {
 
 export const AudioCard = ({ audioUrl, title, description, className }: AudioCardProps) => {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const { registerStartMedia } = useMedia();
 
   const typeAudio = audioUrl.split('.').at(-1);
 
@@ -25,6 +27,10 @@ export const AudioCard = ({ audioUrl, title, description, className }: AudioCard
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const handleStartAudio = () => {
+    registerStartMedia(audioRef.current);
   };
 
   return (
@@ -46,7 +52,7 @@ export const AudioCard = ({ audioUrl, title, description, className }: AudioCard
 
           {/* Контролы плеера */}
           <div className="pt-3 mt-auto flex items-center gap-3 ">
-            <AudioPlayer ref={audioRef} audioUrl={audioUrl} />
+            <AudioPlayer ref={audioRef} audioUrl={audioUrl} onPlay={handleStartAudio} />
           </div>
         </div>
       </div>

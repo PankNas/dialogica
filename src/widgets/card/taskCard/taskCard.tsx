@@ -9,6 +9,7 @@ import Image from 'next/image';
 import ArrowLeftIcon from '@/shared/images/arrow-left.svg';
 import { useState } from 'react';
 import { MediaModal } from '@/widgets/card';
+import { useMedia } from '@/shared/hooks';
 
 export interface TaskCardProps {
   title: string;
@@ -21,6 +22,7 @@ export interface TaskCardProps {
 
 export const TaskCard = (props: TaskCardProps) => {
   const [openModal, setOpenModal] = useState(false);
+  const { stopMedia } = useMedia();
 
   const handleClick = () => {
     setOpenModal(true);
@@ -28,6 +30,7 @@ export const TaskCard = (props: TaskCardProps) => {
 
   const handleClose = () => {
     setOpenModal(false);
+    stopMedia();
   };
 
   return (

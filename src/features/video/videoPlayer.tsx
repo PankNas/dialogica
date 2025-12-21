@@ -1,6 +1,10 @@
+'use client';
+
 import { VideoIcon } from '@/features/video';
 import { mergeClassNames } from '@/shared/lib';
 import { Title } from '@/shared/ui';
+import { useRef } from 'react';
+import { useMedia } from '@/shared/hooks';
 
 type VideoPlayerProps = {
   title: string;
@@ -11,6 +15,13 @@ type VideoPlayerProps = {
 };
 
 export const VideoPlayer = (props: VideoPlayerProps) => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const { registerStartMedia } = useMedia();
+
+  const handlePlayVideo = () => {
+    registerStartMedia(videoRef.current);
+  };
+
   return (
     <div
       className={mergeClassNames(
@@ -31,7 +42,15 @@ export const VideoPlayer = (props: VideoPlayerProps) => {
       </div>
 
       <div className="size-full cursor-pointer shadow-2xl bg-black flex justify-center">
-        <video className="object-cover" poster={props.poster} preload="auto" playsInline controls>
+        <video
+          ref={videoRef}
+          className="object-cover"
+          poster={props.poster}
+          preload="auto"
+          playsInline
+          controls
+          onPlay={handlePlayVideo}
+        >
           {props.sources.map((source) => {
             const type = source.split('.').at(-1);
             return <source key={source} src={source} type={`video/${type}`} />;
