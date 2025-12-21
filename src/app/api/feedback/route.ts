@@ -14,8 +14,7 @@ export async function POST(req: Request) {
     const data: FeedbackParams = await req.json();
 
     const transporter = nodemailer.createTransport({
-      // host: process.env.SMTP_HOST,
-      host: '',
+      host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
       secure: false,
       auth: {

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FormEvent, useRef, useState } from 'react';
+import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { formatRussianPhone, FormItem, Label } from '@/widgets/contactForm';
 import { Button, Checkbox, Input, Loader, OuterLink, Textarea } from '@/shared/ui';
 
@@ -14,12 +14,28 @@ type ContactFormParams = {
   privacy: string;
 };
 
+type ToastType = 'success' | 'error' | null;
+
 export const ContactForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
 
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<string | null>(null); // todo: поправить
+  const [toast, setToast] = useState<{
+    message: string;
+    type: ToastType;
+  } | null>(null);
+
+  // Автоматическое скрытие уведомления через 4 секунды
+  useEffect(() => {
+    if (toast) {
+      const timer = setTimeout(() => {
+        setToast(null);
+      }, 4000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [toast]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,12 +59,15 @@ export const ContactForm = () => {
       const result = await res.json();
 
       if (result.ok) {
-        setMessage('Сообщение отправлено!');
+        // setToast({ message: 'Ваша заявка отправлена', type: 'success' });
+        alert('Ваша заявка отправлена');
       } else {
-        setMessage('Ошибка отправки');
+        // setToast({ message: 'Не удалось отправить заявку. Повторите позже.', type: 'error' });
+        alert('Не удалось отправить заявку. Повторите позже.');
       }
     } catch {
-      setMessage('Ошибка отправки');
+      // setToast({ message: 'Не удалось отправить заявку. Повторите позже.', type: 'error' });
+      alert('Не удалось отправить заявку. Повторите позже.');
     } finally {
       setLoading(false);
     }
@@ -77,8 +96,12 @@ export const ContactForm = () => {
     }
   };
 
+  const handleCloseToast = () => {
+    setToast(null);
+  };
+
   return (
-    <>
+    <div className="">
       <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
         <div className="flex gap-6 flex-col md:flex-row">
           <FormItem name="name" label="Имя" required>
@@ -135,6 +158,6 @@ export const ContactForm = () => {
           Получить консультацию
         </Button>
       </form>
-    </>
+    </div>
   );
 };

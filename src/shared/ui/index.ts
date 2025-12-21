@@ -5,3 +5,4 @@ export * from './input';
 export * from './loader';
 export * from './typography';
 export * from './link';
+export * from './alert';
