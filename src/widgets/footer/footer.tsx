@@ -2,7 +2,7 @@ import TwinIcon from '@/shared/images/logo-twin.svg';
 import LogoIcon from '@/shared/images/logo.svg';
 import Image from 'next/image';
 import { CONTACTS_ANCHOR } from '@/shared/config';
-import { Container } from '@/shared/ui';
+import { Container, OuterLink } from '@/shared/ui';
 
 export const Footer = () => {
   return (
@@ -21,29 +21,34 @@ export const Footer = () => {
           <h3 className="text-lg font-semibold text-white">Контакты</h3>
           <a
             href={`mailto:${process.env.NEXT_PUBLIC_SMTP_USER}`}
-            className="hover:text-white transition-colors"
+            className="hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent"
           >
             {/*info@dialogica24.ru*/}
             {process.env.NEXT_PUBLIC_SMTP_USER}
           </a>
-          <a href="tel:89951318910" className="hover:text-white transition-colors">
+          <a
+            href="tel:89951318910"
+            className="hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent"
+          >
             +7 (995) 131-89-10
           </a>
         </div>
 
-        <div className="flex flex-col gap-3 text-sm text-gray-500 relative text-center sm:text-left items-center md:items-start">
-          <a
+        <div className="flex flex-col gap-3 relative text-center sm:text-left items-center md:items-start">
+          <OuterLink
             href="/documents/Политика_в_отношении_обработки_персональных_данных.pdf"
-            target="_blank"
+            className="text-gray-300 hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent"
           >
             Политика в отношении обработки персональных данных
-          </a>
+          </OuterLink>
 
-          <p className="mt-auto">
-            <span className="text-white/80">Dialogica</span> является официальным партнёром и
-            суббрендом <span className="text-white/80">Twin</span>.
-          </p>
-          <p>ИП Коннов Ю.С. ИНН: 632122918848</p>
+          <div className="text-gray-500 text-sm mt-auto">
+            <p>
+              <span className="text-white/80">Dialogica</span> является официальным партнёром и
+              суббрендом <span className="text-white/80">Twin</span>.
+            </p>
+            <p>ИП Коннов Ю.С. ИНН: 632122918848</p>
+          </div>
         </div>
       </Container>
     </footer>
