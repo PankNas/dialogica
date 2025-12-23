@@ -1,7 +1,7 @@
 import { Container, GradientText, Title, TitleSection } from '@/shared/ui';
 import { ContactForm } from '@/widgets/contactForm';
 import Image from 'next/image';
-import CertificateIcon from '@/shared/images/certificate-2.jpg';
+import CertificateIcon from '@/shared/images/certificate.jpg';
 import { FEEDBACK_ANCHOR } from '@/shared/config';
 
 export const FeedbackSection = () => {
