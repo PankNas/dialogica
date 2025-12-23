@@ -121,8 +121,6 @@ export const ContactForm = () => {
         </Label>
       </FormItem>
 
-      <input type="text" name="botcheck" className="hidden" />
-
       <Button
         type="submit"
         className="w-full flex items-center gap-2 justify-center"
