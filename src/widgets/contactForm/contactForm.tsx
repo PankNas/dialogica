@@ -6,14 +6,6 @@ import { Button, Checkbox, Input, Loader, OuterLink, Textarea } from '@/shared/u
 
 const phonePattern = '8 (___) ___-__-__';
 
-type ContactFormParams = {
-  name: string;
-  phone: string;
-  company: string;
-  question: string;
-  privacy: string;
-};
-
 export const ContactForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
@@ -24,24 +16,28 @@ export const ContactForm = () => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-    const formValues = Object.fromEntries(formData.entries()) as ContactFormParams;
+    formData.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '');
+
+    // Настройка письма через settings
+    formData.append('from_name', 'Dialogica');
+    formData.append('subject', 'Новая заявка');
+
+    const phone = String(formData.get('phone')) || '';
+    formData.set('phone', phone.replace(/[\s\-()]/g, ''));
 
     try {
       setLoading(true);
-      const res = await fetch('/api/feedback', {
+
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          phone: formValues.phone.replace(/[\s\-()]/g, ''),
-          name: formValues.name,
-          company: formValues.company,
-          question: formValues.question,
-        }),
+        body: formData,
       });
 
       const result = await res.json();
 
-      if (result.ok) {
+      console.log('Submit form message:', result.message);
+
+      if (result.success) {
         formRef.current?.reset();
         alert('Ваша заявка отправлена');
       } else {
@@ -124,6 +120,8 @@ export const ContactForm = () => {
           </span>
         </Label>
       </FormItem>
+
+      <input type="text" name="botcheck" className="hidden" />
 
       <Button
         type="submit"

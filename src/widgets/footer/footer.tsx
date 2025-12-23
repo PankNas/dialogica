@@ -20,11 +20,10 @@ export const Footer = () => {
         <div className="flex flex-col gap-3 items-center md:items-start">
           <h3 className="text-lg font-semibold text-white">Контакты</h3>
           <a
-            href={`mailto:${process.env.NEXT_PUBLIC_SMTP_USER}`}
+            href={`mailto:${process.env.NEXT_PUBLIC_EMAIL_NAME}`}
             className="hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent"
           >
-            {/*info@dialogica24.ru*/}
-            {process.env.NEXT_PUBLIC_SMTP_USER}
+            {process.env.NEXT_PUBLIC_EMAIL_NAME}
           </a>
           <a
             href="tel:89951318910"
