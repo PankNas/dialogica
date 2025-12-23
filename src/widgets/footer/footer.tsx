@@ -46,7 +46,7 @@ export const Footer = () => {
               <span className="text-white/80">Dialogica</span> является официальным партнёром и
               суббрендом <span className="text-white/80">Twin</span>.
             </p>
-            <p>ИП Коннов Ю.С. ИНН: 632122918848</p>
+            <p>ИП Коннов Ю.С. ИНН: 632122918848 © {new Date().getFullYear()} Dialogica</p>
           </div>
         </div>
       </Container>
