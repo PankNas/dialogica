@@ -9,11 +9,14 @@ export const MediaProvider = (props: PropsWithChildren) => {
   const stopMedia = () => {
     if (currentMedia.current) {
       currentMedia.current.pause();
-      currentMedia.current.currentTime = 0;
     }
   };
 
   const registerStartMedia = (newMedia: HTMLMediaElement | null) => {
+    if (newMedia === currentMedia.current) {
+      return;
+    }
+
     if (newMedia) {
       stopMedia();
 
