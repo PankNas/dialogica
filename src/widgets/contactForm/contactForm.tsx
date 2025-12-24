@@ -20,7 +20,7 @@ export const ContactForm = () => {
 
     // Настройка письма через settings
     formData.append('from_name', 'Dialogica');
-    formData.append('subject', 'Новая заявка');
+    formData.append('subject', `Новая заявка c сайта ${process.env.NEXT_PUBLIC_DOMAIN}`);
 
     const phone = String(formData.get('phone')) || '';
     formData.set('phone', phone.replace(/[\s\-()]/g, ''));
