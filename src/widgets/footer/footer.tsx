@@ -10,9 +10,23 @@ export const Footer = () => {
       <Container className="mx-auto px-4 grid grid-cols-1 py-10 md:grid-cols-3 gap-10">
         {/* Left block — logos */}
         <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-          <Image src={LogoIcon} alt="Логотип компании" className="h-12 w-auto" />
+          <Image
+            src={LogoIcon}
+            alt="Логотип компании"
+            className="h-12 w-auto"
+            width={144}
+            height={48}
+            loading="lazy"
+          />
           <a href="https://twin24.ai/" target="_blank">
-            <Image src={TwinIcon} alt="Логотип партнёра" className="h-10 w-auto" />
+            <Image
+              src={TwinIcon}
+              alt="Логотип партнёра"
+              className="h-10 w-auto"
+              width={120}
+              height={40}
+              loading="lazy"
+            />
           </a>
         </div>
 

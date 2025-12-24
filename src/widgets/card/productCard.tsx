@@ -32,6 +32,7 @@ export const ProductCard = (props: ProductCardProps) => {
             width={32}
             height={32}
             className="w-8 h-8 lg:w-9 lg:h-9"
+            loading="lazy"
           />
         </span>
       </div>

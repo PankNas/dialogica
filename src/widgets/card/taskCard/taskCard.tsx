@@ -71,7 +71,14 @@ export const TaskCard = (props: TaskCardProps) => {
 
         <div className="flex items-center ml-auto gap-2 text-blue-600 font-medium mt-2 group-hover:translate-x-1 transition-transform duration-200">
           Подробнее
-          <Image src={ArrowLeftIcon} alt="Стрелка" className="size-5" />
+          <Image
+            src={ArrowLeftIcon}
+            alt="Стрелка"
+            className="size-5"
+            width={20}
+            height={20}
+            loading="lazy"
+          />
         </div>
       </button>
 

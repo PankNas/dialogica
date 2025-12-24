@@ -57,6 +57,9 @@ export const FeedbackSection = () => {
                         alt="Сертификат бизнес-партнера TWIN"
                         className="object-cover w-full h-full"
                         sizes="(max-width: 768px) 100vw, 50vw"
+                        width={800}
+                        height={600}
+                        loading="lazy"
                       />
                     </div>
                   </div>

@@ -35,15 +35,14 @@ export const ContactForm = () => {
 
       const result = await res.json();
 
-      console.log('Submit form message:', result.message);
-
       if (result.success) {
         formRef.current?.reset();
         alert('Ваша заявка отправлена');
       } else {
         alert('Не удалось отправить заявку. Повторите позже.');
       }
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error);
       alert('Не удалось отправить заявку. Повторите позже.');
     } finally {
       setLoading(false);

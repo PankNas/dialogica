@@ -90,7 +90,14 @@ export const Header = () => {
             {/* Логотип */}
             <div className="lg:flex-1">
               <Link href="/" onClick={handleNavClick} replace className="flex-shrink-0 z-10">
-                <Image src={LogoIcon} alt="logo" className="h-10 w-auto cursor-pointer" />
+                <Image
+                  src={LogoIcon}
+                  alt="logo"
+                  className="h-10 w-auto cursor-pointer"
+                  width={120}
+                  height={40}
+                  priority
+                />
               </Link>
             </div>
 
