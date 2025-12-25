@@ -57,8 +57,8 @@ export const Footer = () => {
 
           <div className="text-gray-500 text-sm mt-auto">
             <p>
-              <span className="text-white/80">Dialogica</span> является официальным партнёром и
-              суббрендом <span className="text-white/80">Twin</span>.
+              <span className="text-white/80">Dialogica </span>является официальным бизнес-партнёром
+              <span className="text-white/80"> Twin</span>.
             </p>
             <p>ИП Коннов Ю.С. ИНН: 632122918848 © {new Date().getFullYear()} Dialogica</p>
           </div>
