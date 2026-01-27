@@ -6,7 +6,7 @@ declare global {
         host: HTMLElement | null;
         injectStyles?: string;
       }
-    ) => void;
+    ) => Promise<{ api: { open: () => void } }>;
   }
 }
 
