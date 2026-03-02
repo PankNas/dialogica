@@ -56,6 +56,7 @@ export const taskCards: TaskCard[] = [
       },
       { title: 'NPS-опрос недвижимость', sources: '/tasks/nps/NPS-опрос_недвижимость.mp3' },
       { title: 'NPS-опроc салон красоты', sources: '/tasks/nps/NPS-опроc_салон_красоты.mp3' },
+      { title: 'NPS-опроc техцентр', sources: '/tasks/nps/NPS-опрос_Техцентр.mp3' },
     ],
   },
   {
@@ -76,6 +77,10 @@ export const taskCards: TaskCard[] = [
       {
         title: 'Предсервисный опрос из автосервиса. Автоответчик',
         sources: '/tasks/preServiceSurvey/Предсервисный_опрос_автосервис_автоответчик.mp3',
+      },
+      {
+        title: 'Предсервисный опрос из автосервиса. Отказ',
+        sources: '/tasks/preServiceSurvey/Предсервисный_опрос_автосервиса_Отказ.mp3',
       },
       {
         title: 'Предсервисный опрос из стоматологии',

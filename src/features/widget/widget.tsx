@@ -12,7 +12,25 @@ export const Widget = () => {
     script.async = true;
 
     script.onload = async () => {
-      const client = await window.appChatClient?.(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      function shouldOpenWidget(widget: any) {
+        const ARIA_LABELS = {
+          CLOSE: 'Закрыть чат',
+          OPEN: 'Открыть чат',
+        };
+
+        if (!widget?.host?.shadowRoot) {
+          return true;
+        }
+
+        const button = widget.host.shadowRoot.querySelector(
+          `button[aria-label="${ARIA_LABELS.CLOSE}"], button[aria-label="${ARIA_LABELS.OPEN}"]`
+        );
+
+        return button?.getAttribute('aria-label') !== ARIA_LABELS.CLOSE;
+      }
+
+      const widget = await window.appChatClient?.(
         { chatId: process.env.NEXT_PUBLIC_CHAT_ID || '' },
         {
           host: widgetRef.current,
@@ -26,9 +44,11 @@ export const Widget = () => {
         }
       );
 
-      timerRef.current = setTimeout(() => {
-        client?.api.open?.();
-      }, 2000);
+      if (widget && shouldOpenWidget(widget)) {
+        timerRef.current = setTimeout(() => {
+          widget?.api.open?.();
+        }, 1000 * 20);
+      }
     };
 
     document.body.appendChild(script);
