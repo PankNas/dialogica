@@ -19,7 +19,7 @@ export const ContactForm = () => {
     formData.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '');
 
     // Настройка письма через settings
-    formData.append('from_name', 'Dialogica');
+    formData.append('from_name', 'Диалогика');
     formData.append('subject', `Новая заявка c сайта ${process.env.NEXT_PUBLIC_DOMAIN}`);
 
     const phone = String(formData.get('phone')) || '';
